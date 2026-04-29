@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巧虎雙語點讀圖鑑 — 巧連智</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --b:#3BA8E0;--bd:#1A6FA0;--bl:#EBF7FF;
+  --o:#FF7A1A;--od:#C05500;--y:#FFD94A;--g:#4DC98A;--pk:#FF85A1;
+  --bg:#F0F8FF;--white:#fff;--txt:#0D2A40;--mid:#4A6880;--soft:#8AAABB;
+  --sans:'Noto Sans TC',sans-serif;--round:'Nunito',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--txt);overflow-x:hidden;cursor:none;}
+#cur{position:fixed;z-index:9999;pointer-events:none;font-size:26px;transform:translate(-4px,-22px);transition:font-size .15s;}
+#cur.big{font-size:34px;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:60px;
+  padding:0 36px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(240,248,255,.9);backdrop-filter:blur(18px);
+  border-bottom:2px solid rgba(59,168,224,.25);}
+.nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;
+  font-weight:700;font-size:14px;color:var(--bd);transition:gap .15s;}
+.nav-back:hover{gap:12px;}
+.nav-logo{font-family:var(--round);font-weight:900;font-size:17px;color:var(--txt);}
+.nav-logo span{color:var(--b);}
+.nav-buy{background:var(--o);color:#fff;border:none;padding:9px 22px;border-radius:40px;
+  font-size:13px;font-weight:700;cursor:none;
+  box-shadow:0 4px 0 var(--od);transition:transform .12s,box-shadow .12s;}
+.nav-buy:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--od);}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  background:linear-gradient(145deg,#DDEFFF 0%,#C5EAFF 40%,#FFE8D0 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:80px 24px 60px;
+}
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;height:80px;
+  background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%);}
+.hero-bg-circle{position:absolute;border-radius:50%;opacity:.12;}
+.hbc1{width:500px;height:500px;background:var(--b);bottom:-150px;right:-100px;}
+.hbc2{width:250px;height:250px;background:var(--o);top:-60px;left:-60px;}
+
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;width:100%;}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.9);border-radius:40px;
+  padding:7px 16px;font-size:12px;font-weight:700;color:var(--bd);
+  box-shadow:0 3px 12px rgba(59,168,224,.2);margin-bottom:20px;}
+.badge-new{background:var(--o);color:#fff;border-radius:20px;padding:2px 10px;font-size:11px;}
+
+.hero h1{font-family:var(--round);font-size:clamp(36px,5.5vw,68px);
+  font-weight:900;line-height:1.06;letter-spacing:-.02em;margin-bottom:16px;}
+.hero h1 .accent{color:var(--b);}
+.hero h1 .block{display:block;}
+.hero-sub{font-size:clamp(15px,1.7vw,18px);color:var(--mid);line-height:1.85;max-width:440px;margin-bottom:36px;}
+.hero-sub strong{color:var(--bd);}
+
+.hero-price-pill{
+  display:inline-flex;flex-direction:column;align-items:flex-start;
+  background:#fff;border-radius:20px;padding:16px 24px;margin-bottom:28px;
+  box-shadow:0 12px 40px rgba(59,168,224,.15),0 0 0 3px var(--y);position:relative;
+}
+.hero-price-pill::before{content:'限時特價';position:absolute;top:-13px;left:16px;
+  background:var(--o);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;}
+.pp-old{font-size:13px;color:var(--soft);text-decoration:line-through;}
+.pp-new{font-family:var(--round);font-size:38px;font-weight:900;color:var(--o);line-height:1.1;}
+.pp-save{background:var(--g);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:4px;}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-buy{background:var(--o);color:#fff;border:none;padding:14px 34px;border-radius:40px;
+  font-size:16px;font-weight:700;cursor:none;text-decoration:none;
+  box-shadow:0 5px 0 var(--od);transition:transform .12s,box-shadow .12s;display:inline-block;}
+.btn-buy:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--od);}
+.btn-sec{background:#fff;color:var(--b);border:2.5px solid var(--b);
+  padding:12px 28px;border-radius:40px;font-size:16px;font-weight:700;cursor:none;transition:background .2s;}
+.btn-sec:hover{background:#EBF7FF;}
+
+/* Book visual */
+.books-visual{display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;}
+.books-stack{
+  display:flex;gap:10px;align-items:flex-end;
+  padding:20px;
+  background:rgba(255,255,255,.7);border-radius:24px;
+  box-shadow:0 16px 50px rgba(59,168,224,.15);
+  backdrop-filter:blur(10px);
+}
+.book-item{
+  width:70px;
+  border-radius:6px 12px 12px 6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;
+  box-shadow:4px 4px 0 rgba(0,0,0,.12);
+  position:relative;overflow:hidden;
+  transition:transform .2s;cursor:none;
+  animation:bookPop ease-in-out infinite;
+}
+.book-item:hover{transform:translateY(-12px) scale(1.05);}
+.book-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:rgba(0,0,0,.15);}
+@keyframes bookPop{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+.pen-display{
+  display:flex;align-items:center;gap:14px;
+  background:#fff;border-radius:18px;padding:16px 22px;
+  box-shadow:0 8px 30px rgba(59,168,224,.12);
+}
+.pen-icon-big{font-size:36px;}
+.pen-info h4{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:3px;}
+.pen-info p{font-size:12px;color:var(--mid);}
+.pen-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--g);margin-right:5px;animation:pDot 1.2s ease-in-out infinite;}
+@keyframes pDot{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.fl-badge{position:absolute;background:#fff;border-radius:14px;padding:9px 14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.1);font-size:12px;font-weight:700;
+  display:flex;align-items:center;gap:6px;white-space:nowrap;animation:fbFloat ease-in-out infinite;}
+.fb1{top:0%;right:-10%;animation-duration:3s;}
+.fb2{bottom:35%;right:-8%;animation-duration:3.5s;animation-delay:.5s;}
+@keyframes fbFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* POINT-READ DEMO */
+.demo-sec{
+  padding:90px 24px;
+  background:linear-gradient(160deg,#DDEFFF,#C5EAFF);
+}
+.demo-inner{max-width:1000px;margin:0 auto;}
+.sec-pill{display:inline-block;background:var(--b);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.1em;padding:5px 16px;border-radius:30px;margin-bottom:14px;}
+.sec-title{font-family:var(--round);font-size:clamp(26px,4vw,48px);
+  font-weight:900;line-height:1.12;letter-spacing:-.02em;margin-bottom:14px;}
+.sec-title strong{color:var(--b);}
+.sec-sub{font-size:15px;color:var(--mid);line-height:1.85;max-width:540px;}
+
+/* Demo area */
+.demo-book{
+  background:#fff;border-radius:24px;
+  box-shadow:0 16px 60px rgba(59,168,224,.15);
+  overflow:hidden;margin-top:48px;
+}
+.demo-topbar{background:linear-gradient(90deg,var(--b),var(--bd));
+  padding:12px 24px;display:flex;align-items:center;justify-content:space-between;}
+.demo-title{color:#fff;font-weight:700;font-size:15px;}
+.demo-hint{color:rgba(255,255,255,.8);font-size:13px;display:flex;align-items:center;gap:6px;}
+.pen-hint-icon{animation:hintWob 1.5s ease-in-out infinite;display:inline-block;}
+@keyframes hintWob{0%,100%{transform:rotate(-10deg);}50%{transform:rotate(10deg);}}
+.demo-tabs{display:flex;gap:8px;padding:14px 20px;background:#F0F8FF;border-bottom:1px solid rgba(59,168,224,.15);overflow-x:auto;}
+.demo-tab{padding:7px 18px;border-radius:30px;border:none;font-size:13px;font-weight:700;
+  background:#fff;color:var(--mid);cursor:none;transition:all .15s;white-space:nowrap;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.demo-tab.active{background:var(--b);color:#fff;}
+.items-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:28px;}
+.demo-sentence{grid-column:1/-1;text-align:center;font-size:clamp(16px,2.5vw,22px);
+  font-weight:700;color:var(--bd);margin-bottom:24px;padding:12px 16px;
+  background:rgba(59,168,224,.08);border-radius:12px;border:2px dashed rgba(59,168,224,.25);}
+.card-item{display:flex;flex-direction:column;align-items:center;padding:14px 8px 18px;
+  border-radius:18px;cursor:none;position:relative;
+  transition:transform .18s,box-shadow .18s;user-select:none;}
+.card-item:hover{transform:translateY(-6px) scale(1.04);box-shadow:0 14px 36px rgba(0,0,0,.1);}
+.card-item.tapped{animation:tapPop .3s ease-out;}
+@keyframes tapPop{0%{transform:scale(1);}40%{transform:scale(.88);}100%{transform:translateY(-6px) scale(1.04);}}
+.card-face{width:100%;aspect-ratio:3/4;max-width:130px;border-radius:14px;overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.1);margin-bottom:8px;display:flex;align-items:center;justify-content:center;font-size:clamp(36px,7vw,64px);}
+.card-zh{font-size:clamp(13px,1.8vw,16px);font-weight:700;color:var(--txt);}
+.card-en{font-size:clamp(11px,1.5vw,13px);color:var(--mid);}
+.sound-bubble{position:absolute;top:-52px;left:50%;transform:translateX(-50%) scale(0);
+  background:#fff;border-radius:40px;padding:7px 16px;
+  font-weight:700;font-size:14px;color:var(--bd);
+  box-shadow:0 6px 24px rgba(0,0,0,.14);white-space:nowrap;
+  display:flex;align-items:center;gap:7px;
+  transform-origin:bottom center;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:10;}
+.sound-bubble::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+  border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff;}
+.sound-bubble.show{transform:translateX(-50%) scale(1);}
+
+/* CONTENTS */
+.contents-sec{padding:90px 24px;background:var(--bg);}
+.contents-inner{max-width:900px;margin:0 auto;}
+.contents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px;}
+.cont-card{background:#fff;border-radius:20px;padding:24px;
+  display:flex;align-items:flex-start;gap:16px;
+  box-shadow:0 6px 24px rgba(0,0,0,.07);
+  transition:transform .2s;}
+.cont-card:hover{transform:translateY(-4px);}
+.cc-icon{width:50px;height:50px;border-radius:14px;background:var(--bl);
+  display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.cc-info h4{font-size:16px;font-weight:700;margin-bottom:5px;}
+.cc-info p{font-size:13px;color:var(--mid);line-height:1.65;}
+.cc-qty{font-family:var(--round);font-size:28px;font-weight:900;
+  color:rgba(59,168,224,.1);margin-left:auto;flex-shrink:0;align-self:center;}
+
+/* CTA */
+.cta{padding:100px 24px;text-align:center;
+  background:linear-gradient(145deg,#DDEFFF,#C5EAFF);}
+.cta-box{display:inline-flex;flex-direction:column;align-items:center;
+  background:#fff;border-radius:28px;padding:40px 60px;
+  box-shadow:0 16px 60px rgba(59,168,224,.15),0 0 0 4px var(--y);}
+.cta-box::before{display:none;}
+.cta h2{font-family:var(--round);font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:10px;}
+.cta p{font-size:16px;color:var(--mid);margin-bottom:8px;}
+.cta-price-row{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;}
+.cta-old{color:var(--soft);text-decoration:line-through;font-size:16px;}
+.cta-new{font-family:var(--round);font-size:48px;font-weight:900;color:var(--o);}
+
+/* SHARED */
+.burst{position:fixed;pointer-events:none;z-index:9998;font-size:18px;animation:burstOut .65s ease-out forwards;}
+@keyframes burstOut{0%{opacity:1;transform:translate(0,0) scale(1);}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.1);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+footer{background:#E0F2FF;padding:28px 24px;text-align:center;font-size:13px;color:var(--soft);
+  border-top:2px solid rgba(59,168,224,.2);}
+footer a{color:var(--b);text-decoration:none;font-weight:700;}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .books-visual{order:-1;}
+  .fl-badge{display:none;}
+  .items-grid{grid-template-columns:repeat(2,1fr);}
+  .contents-grid{grid-template-columns:1fr;}
+  nav{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+<div id="cur">🖊️</div>
+
+<nav>
+  <a href="index.html" class="nav-back">← 返回首頁</a>
+  <div class="nav-logo">巧連智 <span>雙語點讀</span></div>
+  <button class="nav-buy" onclick="window.open('https://store.benesse.com.tw/products/%E5%B7%A7%E8%99%8E%E9%9B%99%E8%AA%9E%E9%BB%9E%E8%AE%80%E5%9C%96%E9%91%91','_blank')">立即購買</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle hbc1"></div>
+  <div class="hero-bg-circle hbc2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge reveal">
+        <span class="badge-new">🆕 2026新品</span> 6M+ 語彙啟蒙
+      </div>
+      <h1 class="reveal d1">
+        寶寶的第一套<br>
+        <span class="accent block">中英雙語</span>
+        點讀圖鑑
+      </h1>
+      <p class="hero-sub reveal d2">
+        真實音效 × 唸謠歌曲 × <strong>中英雙語</strong>，<br>
+        從 6 個月開始用點讀方式啟蒙語彙，<br>
+        解決爸媽發音焦慮，讓寶寶愛上探索。
+      </p>
+      <div class="hero-price-pill reveal d2">
+        <div class="pp-old">原價 NT$3,000</div>
+        <div class="pp-new">NT$2,399</div>
+        <div class="pp-save">省下 NT$601！</div>
+      </div>
+      <div class="hero-btns reveal d3">
+        <a href="https://store.benesse.com.tw/products/%E5%B7%A7%E8%99%8E%E9%9B%99%E8%AA%9E%E9%BB%9E%E8%AE%80%E5%9C%96%E9%91%91" target="_blank" class="btn-buy">🛒 立即購買</a>
+        <button class="btn-sec" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">體驗點讀 Demo</button>
+      </div>
+    </div>
+    <div class="books-visual reveal d2">
+      <div class="books-stack">
+        <div class="book-item" style="height:140px;background:linear-gradient(160deg,#3BA8E0,#1A6FA0);animation-delay:0s;animation-duration:3s;">🏠</div>
+        <div class="book-item" style="height:160px;background:linear-gradient(160deg,#FF7A1A,#C05500);animation-delay:.5s;animation-duration:3.5s;">🦁</div>
+        <div class="book-item" style="height:150px;background:linear-gradient(160deg,#4DC98A,#2A9060);animation-delay:1s;animation-duration:2.8s;">🚗</div>
+        <div class="book-item" style="height:145px;background:linear-gradient(160deg,#FF85A1,#CC4466);animation-delay:.3s;animation-duration:3.2s;">🍎</div>
+      </div>
+      <div class="pen-display">
+        <div class="pen-icon-big">🖊️</div>
+        <div class="pen-info">
+          <h4><span class="pen-dot"></span>點讀巧虎已就緒</h4>
+          <p>點擊任何圖片即時發音</p>
+        </div>
+      </div>
+      <div class="fl-badge fb1">🌏 中英雙語</div>
+      <div class="fl-badge fb2">🎵 唸謠歌曲</div>
+    </div>
+  </div>
+  <div class="hero-wave"></div>
+</section>
+
+<!-- POINT-READ DEMO -->
+<section class="demo-sec" id="demo">
+  <div class="demo-inner">
+    <div class="reveal">
+      <div class="sec-pill">🖊️ 互動體驗</div>
+      <h2 class="sec-title">滑鼠 = 點讀筆<br><strong>點圖片聽發音！</strong></h2>
+      <p class="sec-sub">選擇主題，點擊圖片，立刻聽到中英雙語發音，就像真正的點讀筆！</p>
+    </div>
+    <div class="demo-book reveal d1">
+      <div class="demo-topbar">
+        <div class="demo-title" id="demoTitle">🦁 動物圖鑑</div>
+        <div class="demo-hint"><span class="pen-hint-icon">🖊️</span> 點擊圖片聽發音</div>
+      </div>
+      <div class="demo-tabs">
+        <button class="demo-tab active" onclick="switchSet(0,this)">🦁 動物</button>
+        <button class="demo-tab" onclick="switchSet(1,this)">🏠 生活</button>
+        <button class="demo-tab" onclick="switchSet(2,this)">🚗 交通</button>
+        <button class="demo-tab" onclick="switchSet(3,this)">🍎 食物</button>
+      </div>
+      <div class="items-grid" id="itemsGrid">
+        <div class="demo-sentence" id="demoSentence">點擊下方圖片，聽聽看中英語怎麼說！</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENTS -->
+<section class="contents-sec" id="contents">
+  <div class="contents-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="sec-pill">📦 套組內容</div>
+      <h2 class="sec-title">一套<strong>完整包含</strong></h2>
+    </div>
+    <div class="contents-grid">
+      <div class="cont-card reveal d1">
+        <div class="cc-icon">🖊️</div>
+        <div class="cc-info"><h4>點讀巧虎</h4><p>智慧點讀筆，點哪說哪，中英即時發音回饋</p></div>
+        <div class="cc-qty">×1</div>
+      </div>
+      <div class="cont-card reveal d2">
+        <div class="cc-icon">📖</div>
+        <div class="cc-info"><h4>雙語點讀圖鑑</h4><p>生活、動物、交通等主題，中英雙語對照</p></div>
+        <div class="cc-qty">×4</div>
+      </div>
+      <div class="cont-card reveal d1">
+        <div class="cc-icon">📓</div>
+        <div class="cc-info"><h4>育兒誌</h4><p>附贈專業育兒知識手冊，陪伴爸媽成長</p></div>
+        <div class="cc-qty">×1</div>
+      </div>
+      <div class="cont-card reveal d2" style="border:2px dashed var(--y);background:rgba(255,217,74,.06);">
+        <div class="cc-icon" style="background:#FFF8CC;">🎁</div>
+        <div class="cc-info">
+          <h4 style="color:var(--o);">限時加贈 <span style="font-size:11px;font-weight:400;color:var(--mid);">至4/30</span></h4>
+          <p>巧虎小小宇宙尋夢燈，數量有限送完為止</p>
+        </div>
+        <div class="cc-qty">×1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="cta-box reveal">
+    <div style="font-size:64px;margin-bottom:16px;">📖</div>
+    <h2>讓寶寶愛上雙語學習</h2>
+    <p>從 6 個月開始，點讀啟蒙中英語彙</p>
+    <div class="cta-price-row">
+      <span class="cta-old">NT$3,000</span>
+      <span class="cta-new">NT$2,399</span>
+    </div>
+    <a href="https://store.benesse.com.tw/products/%E5%B7%A7%E8%99%8E%E9%9B%99%E8%AA%9E%E9%BB%9E%E8%AE%80%E5%9C%96%E9%91%91" target="_blank" class="btn-buy" style="font-size:17px;padding:16px 44px;">🛒 立即購買</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Benesse Corporation / 巧虎 &nbsp;|&nbsp; <a href="index.html">← 返回首頁</a> &nbsp;|&nbsp; 客服：0800-000-405</p>
+</footer>
+
+<script>
+const cur=document.getElementById('cur');
+document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.fontSize='34px';});
+  el.addEventListener('mouseleave',()=>{cur.style.fontSize='26px';});
+});
+const bursts=['⭐','✨','📖','🌟','💙','🎵','💫'];
+document.addEventListener('click',e=>{
+  for(let i=0;i<6;i++){
+    const el=document.createElement('div');el.className='burst';
+    el.textContent=bursts[Math.floor(Math.random()*bursts.length)];
+    const a=Math.random()*2*Math.PI,d=40+Math.random()*65;
+    el.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;transform:translate(-50%,-50%);`;
+    document.body.appendChild(el);setTimeout(()=>el.remove(),700);
+  }
+});
+const revs=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:.1});
+revs.forEach(el=>ro.observe(el));
+
+// DEMO DATA
+const sets=[
+  {title:'🦁 動物圖鑑',sentence:'點擊動物圖片，聽聽看怎麼說！',
+   items:[
+    {e:'🦁',zh:'獅子',en:'Lion',bg:'#FFE5AA,#FFD080'},
+    {e:'🦓',zh:'斑馬',en:'Zebra',bg:'#E8E8E8,#CCCCCC'},
+    {e:'🐘',zh:'大象',en:'Elephant',bg:'#D0D8E8,#A0AABB'},
+    {e:'🦒',zh:'長頸鹿',en:'Giraffe',bg:'#FFE8AA,#FFCC66'},
+    {e:'🐬',zh:'海豚',en:'Dolphin',bg:'#A8DDFF,#5599CC'},
+    {e:'🦊',zh:'狐狸',en:'Fox',bg:'#FFCCAA,#EE8844'},
+    {e:'🐼',zh:'貓熊',en:'Panda',bg:'#F0F0F0,#CCCCCC'},
+    {e:'🐧',zh:'企鵝',en:'Penguin',bg:'#CCEEEE,#7799AA'},
+  ]},
+  {title:'🏠 生活圖鑑',sentence:'點擊生活物品，學習中英語彙！',
+   items:[
+    {e:'🛋️',zh:'沙發',en:'Sofa',bg:'#FFDDCC,#DDAA88'},
+    {e:'🛏️',zh:'床',en:'Bed',bg:'#DDCCFF,#AA88DD'},
+    {e:'🪑',zh:'椅子',en:'Chair',bg:'#CCDDFF,#8899CC'},
+    {e:'📚',zh:'書本',en:'Books',bg:'#AADDFF,#5599BB'},
+    {e:'🚿',zh:'蓮蓬頭',en:'Shower',bg:'#AAFFEE,#44BB99'},
+    {e:'🪴',zh:'盆栽',en:'Plant',bg:'#CCFFCC,#66BB66'},
+    {e:'🪟',zh:'窗戶',en:'Window',bg:'#DDEEFF,#99BBDD'},
+    {e:'🚪',zh:'門',en:'Door',bg:'#EEDDCC,#BB9966'},
+  ]},
+  {title:'🚗 交通圖鑑',sentence:'點擊交通工具，學習中英名稱！',
+   items:[
+    {e:'🚗',zh:'汽車',en:'Car',bg:'#FFE0CC,#FF9966'},
+    {e:'✈️',zh:'飛機',en:'Airplane',bg:'#CCE8FF,#5599EE'},
+    {e:'🚢',zh:'輪船',en:'Ship',bg:'#CCFFFF,#44AACC'},
+    {e:'🚂',zh:'火車',en:'Train',bg:'#FFCCCC,#EE6666'},
+    {e:'🚌',zh:'公車',en:'Bus',bg:'#FFFFCC,#DDCC44'},
+    {e:'🚲',zh:'腳踏車',en:'Bicycle',bg:'#DDFFCC,#77BB44'},
+    {e:'🚁',zh:'直升機',en:'Helicopter',bg:'#FFDDFF,#CC88CC'},
+    {e:'🚀',zh:'火箭',en:'Rocket',bg:'#FFCCEE,#EE6699'},
+  ]},
+  {title:'🍎 食物圖鑑',sentence:'點擊食物圖片，認識好吃的名稱！',
+   items:[
+    {e:'🍎',zh:'蘋果',en:'Apple',bg:'#FFCCCC,#EE5555'},
+    {e:'🍌',zh:'香蕉',en:'Banana',bg:'#FFFFAA,#CCAA00'},
+    {e:'🍊',zh:'橘子',en:'Orange',bg:'#FFDDAA,#EE8800'},
+    {e:'🍓',zh:'草莓',en:'Strawberry',bg:'#FFBBCC,#EE3355'},
+    {e:'🍇',zh:'葡萄',en:'Grape',bg:'#EECCFF,#8844CC'},
+    {e:'🥕',zh:'紅蘿蔔',en:'Carrot',bg:'#FFDDAA,#EE7700'},
+    {e:'🌽',zh:'玉米',en:'Corn',bg:'#FFFFCC,#CCAA00'},
+    {e:'🍰',zh:'蛋糕',en:'Cake',bg:'#FFDDEE,#EE88AA'},
+  ]},
+];
+
+let currentSet=0;
+let activeBubble=null;
+
+function speak(text,lang='en-US'){
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang; u.rate=0.85; u.pitch=1.1;
+  window.speechSynthesis.speak(u);
+}
+
+function buildGrid(idx){
+  const set=sets[idx];
+  document.getElementById('demoTitle').textContent=set.title;
+  document.getElementById('demoSentence').textContent=set.sentence;
+  const grid=document.getElementById('itemsGrid');
+  Array.from(grid.querySelectorAll('.card-item')).forEach(el=>el.remove());
+  set.items.forEach((item,i)=>{
+    const div=document.createElement('div');
+    div.className='card-item';
+    const [c1,c2]=item.bg.split(',');
+    div.innerHTML=`
+      <div class="sound-bubble" id="sb${idx}_${i}"><span style="color:var(--g)">🔊</span> ${item.en}</div>
+      <div class="card-face" style="background:linear-gradient(135deg,${c1},${c2})">${item.e}</div>
+      <div class="card-zh">${item.zh}</div>
+      <div class="card-en">${item.en}</div>
+    `;
+    div.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(activeBubble){activeBubble.classList.remove('show');activeBubble=null;}
+      const bubble=document.getElementById(`sb${idx}_${i}`);
+      bubble.classList.add('show'); activeBubble=bubble;
+      setTimeout(()=>{bubble.classList.remove('show');if(activeBubble===bubble)activeBubble=null;},2200);
+      div.classList.remove('tapped');void div.offsetWidth;div.classList.add('tapped');
+      // speak Chinese then English
+      speak(item.zh,'zh-TW');
+      setTimeout(()=>speak(item.en,'en-US'),800);
+      // update sentence
+      const s=document.getElementById('demoSentence');
+      s.textContent=`🔊 "${item.zh}" — "${item.en}"`;
+      setTimeout(()=>{s.textContent=set.sentence;},2200);
+    });
+    div.style.opacity='0'; div.style.transform='translateY(16px)';
+    grid.appendChild(div);
+    setTimeout(()=>{
+      div.style.transition='opacity .3s ease,transform .3s ease';
+      div.style.opacity='1'; div.style.transform='';
+    },i*50+60);
+  });
+}
+
+function switchSet(idx,btn){
+  currentSet=idx;
+  document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  buildGrid(idx);
+}
+
+buildGrid(0);
+</script>
+</body>
+</html>
