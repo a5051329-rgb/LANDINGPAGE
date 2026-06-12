@@ -2056,11 +2056,11 @@ const pains=[
 const flipGrid=document.getElementById('flipGrid');
 if(flipGrid){pains.forEach(p=>{const card=document.createElement('button');card.className='flip-card';card.style.setProperty('--blob',p.color);card.innerHTML=`<div class="flip-inner"><div class="flip-front"><div><div class="flip-emoji">${p.emoji}</div><h3 class="flip-title">${p.title}</h3><p class="flip-grumble">${p.grumble}</p></div><span class="find-btn">找解方</span></div><div class="flip-back"><div><div class="solution-label">${p.label}</div><h3>${p.backTitle}</h3><p>${p.sol}</p></div><img class="solution-img" src="${solutionHappyImg}" alt="爸媽覺得安心的插圖"><span class="find-btn">再看一次</span></div></div>`;card.onclick=()=>{card.classList.toggle('flipped');spark(card)};flipGrid.appendChild(card)})};
 const details=[
-{img:'images/image_11_7f1919b12b.png',c:'#59B5E8',title:'Thin-Dry 超薄芯體',text:'傳統紙尿布 1/6 厚度、3 倍吸收速度，尿尿被快速吸走，寶寶活動時更輕盈，也減少濕悶不舒服。'},
-{img:'images/image_30_7435d85ac3.png',c:'#44CBBF',title:'超聲波百褶腰圍',text:'零膠水更柔軟，腰圍像小雲朵一樣包覆寶寶，伸縮貼合，也比較不容易留下勒痕。'},
-{img:'images/image_31_caec17fcf6.png',c:'#9AD9FF',title:'3D 立體表層',text:'極細纖維做出立體觸感，減少與寶寶肌膚摩擦，就像替屁屁鋪上一層柔柔保護墊。'},
-{img:'images/image_32_3aa5cd3f10.png',c:'#FFB02E',title:'有魔術貼，反覆調整OK',text:'腰臀腿貼合，柔軟防漏，如果一開始貼得不剛好，也能拉穿後再黏貼、調到完美貼合！'},
-{img:'images/image_33_7639218b76.png',c:'#FF7BA8',title:'「玩」美設計',text:'日本插畫風格，像繪本一樣柔和可愛，讓尿布不只是日用品，也多一點美感與質感育兒的心情。'}];
+{img:'mirafeel/images/image_11_7f1919b12b.png',c:'#59B5E8',title:'Thin-Dry 超薄芯體',text:'傳統紙尿布 1/6 厚度、3 倍吸收速度，尿尿被快速吸走，寶寶活動時更輕盈，也減少濕悶不舒服。'},
+{img:'mirafeel/images/image_30_7435d85ac3.png',c:'#44CBBF',title:'超聲波百褶腰圍',text:'零膠水更柔軟，腰圍像小雲朵一樣包覆寶寶，伸縮貼合，也比較不容易留下勒痕。'},
+{img:'mirafeel/images/image_31_caec17fcf6.png',c:'#9AD9FF',title:'3D 立體表層',text:'極細纖維做出立體觸感，減少與寶寶肌膚摩擦，就像替屁屁鋪上一層柔柔保護墊。'},
+{img:'mirafeel/images/image_32_3aa5cd3f10.png',c:'#FFB02E',title:'有魔術貼，反覆調整OK',text:'腰臀腿貼合，柔軟防漏，如果一開始貼得不剛好，也能拉穿後再黏貼、調到完美貼合！'},
+{img:'mirafeel/images/image_33_7639218b76.png',c:'#FF7BA8',title:'「玩」美設計',text:'日本插畫風格，像繪本一樣柔和可愛，讓尿布不只是日用品，也多一點美感與質感育兒的心情。'}];
 
 const grid=document.getElementById('detailGrid'),dImg=document.getElementById('detailImg'),dTitle=document.getElementById('detailTitle'),dText=document.getElementById('detailText'),dOpen=document.getElementById('detailOpen');
 dOpen.classList.remove('show');
