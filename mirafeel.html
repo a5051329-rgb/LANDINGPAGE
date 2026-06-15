@@ -10302,6 +10302,125 @@ body.desktop-fear-overlay-active #fear #flipGrid{position:relative;z-index:1;}
 })();
 </script>
 
+
+<style id="v84-r30-overlay-dismiss-conditions">
+/* R30: overlay dismiss rules
+   - Click anywhere to close.
+   - Close once scroll has passed the "那就是.....!!" line.
+   - Once closed, never show again in the same session. */
+body.r30-overlay-dismissed #desktopFearOverlay,
+body.r30-overlay-dismissed.desktop-fear-overlay-active #desktopFearOverlay{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+body.r30-overlay-dismissed{
+  overflow-x:hidden!important;
+}
+</style>
+
+<script id="v84-r30-overlay-dismiss-conditions-script">
+(function(){
+  var R29_KEY = 'mirafeel_desktop_overlay_seen_v29';
+  var R30_KEY = 'mirafeel_desktop_overlay_dismissed_v30';
+  var dismissed = false;
+
+  function isDesktop(){
+    return window.matchMedia && window.matchMedia('(min-width:1025px)').matches;
+  }
+
+  function isOverlayOpen(){
+    return document.body.classList.contains('desktop-fear-overlay-active');
+  }
+
+  function setSeen(){
+    dismissed = true;
+    document.body.classList.add('r30-overlay-dismissed');
+    try{
+      sessionStorage.setItem(R29_KEY, '1');
+      sessionStorage.setItem(R30_KEY, '1');
+    }catch(e){}
+  }
+
+  function closeOverlay(){
+    var overlay = document.getElementById('desktopFearOverlay');
+    setSeen();
+    document.body.classList.remove('desktop-fear-overlay-active');
+    if(overlay){
+      overlay.style.display = 'none';
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+      overlay.style.pointerEvents = 'none';
+    }
+  }
+
+  function getAnswerLine(){
+    return document.querySelector('#idealNeeds .type-line-2') ||
+           document.querySelector('#idealNeeds .ideal-line2') ||
+           document.querySelector('#idealNeeds .ideal-wave-line.line-2');
+  }
+
+  function hasScrolledPastAnswerLine(){
+    var line = getAnswerLine();
+    if(!line) return false;
+    var rect = line.getBoundingClientRect();
+    return rect.bottom < 0;
+  }
+
+  function applyDismissState(){
+    try{
+      if(sessionStorage.getItem(R29_KEY) === '1' || sessionStorage.getItem(R30_KEY) === '1'){
+        dismissed = true;
+      }
+    }catch(e){}
+    if(dismissed){
+      closeOverlay();
+    }
+  }
+
+  function onAnyClick(){
+    if(!isDesktop()) return;
+    if(isOverlayOpen()){
+      closeOverlay();
+    }
+  }
+
+  function onScrollOrResize(){
+    if(!isDesktop()) return;
+    if(dismissed){
+      closeOverlay();
+      return;
+    }
+    if(hasScrolledPastAnswerLine()){
+      closeOverlay();
+    }
+  }
+
+  function init(){
+    applyDismissState();
+
+    document.addEventListener('click', onAnyClick, true);
+    document.addEventListener('touchstart', onAnyClick, {capture:true, passive:true});
+    window.addEventListener('scroll', onScrollOrResize, {passive:true});
+    window.addEventListener('resize', onScrollOrResize);
+
+    // Guard against the older R29 overlay script re-opening it after dismissal.
+    setInterval(function(){
+      if(dismissed || hasScrolledPastAnswerLine()){
+        closeOverlay();
+      }
+    }, 350);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  }else{
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>
 <style id="v78-logo-spacing-final">
