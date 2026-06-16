@@ -5493,6 +5493,20 @@ body.r21-spotlight-visible .pain-spotlight-panel h3,body.r21-spotlight-visible .
 @media(max-width:1024px){.scene-video-shell{width:min(480px,100%);}}
 @media(max-width:768px){.scene-video-shell{width:100%;max-width:100%;padding:12px;border-radius:22px;margin-top:10px;}.scene-video-title{font-size:15px;margin:2px 6px 10px;}}
 </style>
+
+<style id="v84-r33-stage-gate-preload">
+/* R33 preload: prevent below sections from flashing before the age selection script runs. */
+body:not(.stage-gate-unlocked) #idealNeeds,
+body:not(.stage-gate-unlocked) #realScenes,
+body:not(.stage-gate-unlocked) #details,
+body:not(.stage-gate-unlocked) #wearing,
+body:not(.stage-gate-unlocked) #compare,
+body:not(.stage-gate-unlocked) #quality,
+body:not(.stage-gate-unlocked) #reviews,
+body:not(.stage-gate-unlocked) #faq,
+body:not(.stage-gate-unlocked) #size,
+body:not(.stage-gate-unlocked) #cta{display:none!important;}
+</style>
 </head>
 <body>
 <div id="pb"></div>
@@ -5514,7 +5528,7 @@ body.r21-spotlight-visible .pain-spotlight-panel h3,body.r21-spotlight-visible .
 <h1 id="heroV34Title">尿布還沒穿好，<br/>寶寶咻～一下跑走了？</h1>
 <div class="hero-v34-line"></div>
 <p id="heroV34Sub">家裡的小探險家一秒翻身、下一秒開爬，<br/>換尿布也變成爸媽的追逐小任務。</p>
-<a class="hero-v34-cta" href="#fear">看看爸媽挑選尿布的煩惱是？ <span>→</span></a>
+<a class="hero-v34-cta" href="#fear">看看爸媽挑尿布的煩惱 <span>→</span></a>
 </div>
 <button aria-label="上一張 Banner" class="hero-v34-arrow hero-v34-prev" type="button">‹</button>
 <button aria-label="下一張 Banner" class="hero-v34-arrow hero-v34-next" type="button">›</button>
@@ -5530,20 +5544,33 @@ body.r21-spotlight-visible .pain-spotlight-panel h3,body.r21-spotlight-visible .
 </div>
 </section>
 <section class="section pain" id="fear"><div class="inner">
-<div class="reveal">
-<div class="kicker">🤔 挑選尿布時，新手爸媽最在意的是...</div>
-<h2 class="h2">每一個新手爸媽的小擔心，<br/><strong>都需要剛剛好的解法！</strong></h2>
-<p class="sub">寶寶一扭、腰腿一紅、半夜一漏，爸媽就會開始懷疑是不是尿布不夠合適。這些每天都會遇到的小狀況，正是挑尿布時最想被解決的地方。</p>
+<div class="reveal pain-stage-head">
+<div class="kicker stage-kicker">👶 依寶寶階段找煩惱</div>
+<h2 class="h2 stage-main-title">你家寶寶現在在哪個階段？</h2>
+<p class="sub stage-main-sub">不同時期，爸媽在意的尿布問題也不太一樣。先選擇寶寶階段，看看這時期最有感的尿布煩惱。</p>
+<div class="baby-stage-picker" id="babyStagePicker" aria-label="選擇寶寶階段">
+<button class="stage-option" type="button" data-stage="newborn"><span class="stage-emoji">🍼</span><b>新生兒期</b><small>0–3M</small></button>
+<button class="stage-option" type="button" data-stage="moving"><span class="stage-emoji">🌀</span><b>開始好動</b><small>4–6M</small></button>
+<button class="stage-option" type="button" data-stage="crawling"><span class="stage-emoji">🐾</span><b>翻身爬行</b><small>7–12M</small></button>
+<button class="stage-option" type="button" data-stage="walking"><span class="stage-emoji">👣</span><b>學站學走</b><small>1Y+</small></button>
+</div>
+<div class="stage-result-copy" id="stageResultCopy" aria-live="polite">
+<div class="kicker">🤔 這個階段，爸媽最在意的是...</div>
+<h2 class="h2" id="stageResultTitle">每一個階段的小擔心，<br/><strong>都需要剛剛好的解法！</strong></h2>
+<p class="sub" id="stageResultSub">選擇寶寶階段後，會列出這個時期更容易遇到的尿布煩惱。</p>
+<button class="stage-reselect-btn" id="stageResetBtn" type="button">← 重新選擇寶寶階段</button>
+</div>
 </div>
 <img alt="煩惱尿布選擇的新手爸媽" class="fear-parent-img reveal d2" src="mirafeel/images/parents_diaper_worry.png"/>
 <div class="flip-grid reveal d1" id="flipGrid"></div>
+<div class="fear-next-wrap reveal d2"><button class="fear-next-cta" type="button" onclick="document.getElementById('idealNeeds').scrollIntoView({behavior:'smooth'})">下一步，找到更安心的選擇</button></div>
 </div></section>
 <section class="section ideal-needs" id="idealNeeds">
 <div class="inner">
 <div class="ideal-wrap">
 <div class="ideal-head reveal">
 <div class="kicker">💛 爸媽心中的理想尿布</div>
-<h2 class="h2">寶寶舒適，<br/>爸媽育兒也更方便。</h2>
+<h2 class="h2 ideal-needs-title">所以…擁有理想的尿布，<br/><span class="ideal-head-glow">寶寶舒適、爸媽育兒也更輕鬆！</span></h2>
 <p class="sub">真正理想的尿布，是在每個育兒日常裡，都能讓照顧變得更順手一些。</p>
 </div>
 <div class="ideal-check-panel reveal d1">
@@ -5573,8 +5600,8 @@ body.r21-spotlight-visible .pain-spotlight-panel h3,body.r21-spotlight-visible .
 <div aria-label="父母認可" class="check-mark"></div>
 </article>
 </div>
-<div aria-label="Mirafeel 登場標語" class="ideal-slogan typewriter-slogan" data-type-line1="如果你還在找那片你與寶寶理想中的完美尿布，" data-type-line2="那就是...">
-  <p class="ideal-typewriter" aria-live="polite"><span class="type-line type-line-1">如果你還在找那片你與寶寶理想中的完美尿布，</span><br/><span class="type-line type-line-2">那就是...</span></p>
+<div aria-label="Mirafeel 登場標語" class="ideal-slogan typewriter-slogan" data-type-line1="如果你還在尋找一款你與寶寶心中理想的完美尿布，" data-type-line2="我們想介紹給你……">
+  <p class="ideal-typewriter" aria-live="polite"><span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br/><span class="type-line type-line-2">我們想介紹給你……</span></p>
   
 </div>
 </div>
@@ -5735,14 +5762,18 @@ const sizeData=[
 const wo=document.getElementById('weightOptions'),sr=document.getElementById('sizeResult'),sl=document.getElementById('sizeLabel'),sn=document.getElementById('sizeNote'),tb=document.getElementById('trialBtn');
 sizeData.forEach((s,i)=>{const btn=document.createElement('button');btn.className='weight-btn';btn.textContent=s.label;btn.onclick=()=>{document.querySelectorAll('.weight-btn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');sl.textContent=s.size;sn.textContent=s.note;tb.textContent='購買體驗包';tb.href=s.link;sr.classList.add('show');spark(btn)};wo.appendChild(btn)});
 const reviews=[
-{tag:'#柔軟可愛',text:'「我覺得這尿布好柔軟，外型也超可愛，有點相見恨晚。」',src:'BabyHome 討論區',url:'https://forum.babyhome.com.tw/topic/5048402'},
-{tag:'#吸收透氣',text:'「吸收力跟透氣度都是水準之上，日系尿布的品質基本上完全不用懷疑。」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258379476'},
-{tag:'#可調腰圍',text:'「雖然是褲型尿布，但穿上後可以像黏貼型尿布再稍微調整一下腰圍。」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258415852'},
-{tag:'#男寶友善',text:'「我覺得男寶友善，前檔是有加長的～趴著睡也不怕！」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258450944'},
-{tag:'#好動寶寶',text:'「如果家裡寶寶跟胡蘿蔔一樣很好動的話，真的很推薦這款尿布哦！」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258503044'},
-{tag:'#二合一方便',text:'「穿起來像小褲褲一樣方便，但又可以像黏貼型一樣調整鬆緊。」',src:'Threads 分享',url:'https://www.threads.com/@man.tou0909/post/DIJELT6JykM/mirafeel'}
+{tag:'#柔軟可愛',highlight:'這尿布好柔軟',text:'「我覺得這尿布好柔軟，外型也超可愛，有點相見恨晚。」',src:'BabyHome 討論區',url:'https://forum.babyhome.com.tw/topic/5048402'},
+{tag:'#吸收透氣',highlight:'吸收力跟透氣度都是水準之上',text:'「吸收力跟透氣度都是水準之上，日系尿布的品質基本上完全不用懷疑。」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258379476'},
+{tag:'#可調腰圍',highlight:'可以像黏貼型尿布再稍微調整一下腰圍',text:'「雖然是褲型尿布，但穿上後可以像黏貼型尿布再稍微調整一下腰圍。」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258415852'},
+{tag:'#男寶友善',highlight:'男寶友善',text:'「我覺得男寶友善，前檔是有加長的～趴著睡也不怕！」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258450944'},
+{tag:'#好動寶寶',highlight:'很好動的話，真的很推薦',text:'「如果家裡寶寶跟胡蘿蔔一樣很好動的話，真的很推薦這款尿布哦！」',src:'Dcard 親子板',url:'https://www.dcard.tw/f/parentchild/p/258503044'},
+{tag:'#二合一方便',highlight:'像小褲褲一樣方便',text:'「穿起來像小褲褲一樣方便，但又可以像黏貼型一樣調整鬆緊。」',src:'Threads 分享',url:'https://www.threads.com/@man.tou0909/post/DIJELT6JykM/mirafeel'}
 ];
-const rg=document.getElementById('reviewGrid');reviews.forEach(r=>{const div=document.createElement('div');div.className='review-card';div.innerHTML=`<div class="stars">★★★★★</div><div class="rtag">${r.tag}</div><p class="rtext">${r.text}</p><div class="rsource"><span>${r.src}</span></div>`;rg.appendChild(div)});
+function renderReviewText(r){
+  if(!r.highlight) return r.text;
+  return r.text.replace(r.highlight,'<span class="review-highlight">'+r.highlight+'</span>');
+}
+const rg=document.getElementById('reviewGrid');reviews.forEach(r=>{const div=document.createElement('div');div.className='review-card';div.innerHTML=`<div class="stars">★★★★★</div><div class="rtag">${r.tag}</div><p class="rtext">${renderReviewText(r)}</p><div class="rsource"><span>${r.src}</span></div>`;rg.appendChild(div)});
 const faqs=[
 {q:'Mirafeel巧貼褲很像褲型紙尿褲，又可黏貼，請問這是褲型紙尿褲，還是黏貼式的尿布？',a:'Mirafeel巧貼褲為可調整的褲型尿布，是褲型＋黏貼二合一的一體成型尿布，穿上後可依據孩子身形調整，更貼合孩子的身形，舒適度及方便性更為提升。'},
 {q:'Mirafeel巧貼褲品質如何呢？有什麼特色？',a:'Mirafeel巧貼褲為可調整的褲型尿布，不論是腰圍或腿圍都可以依據孩子的身型，於穿上尿布後進行調整，更符合孩子穿著不易滲漏，還有Thin-Dry超薄芯體，高效吸濕防止滲漏，3倍吸收度透氣乾爽，預防尿布疹。'},
@@ -7031,7 +7062,7 @@ button.section-down:hover{
     var logo=box.querySelector('.ideal-slogan-logo');
     if(!target || !l1 || !l2 || !logo) return;
     var text1=box.getAttribute('data-type-line1') || '如果你還在找那片你與寶寶理想中的完美尿布，';
-    var text2=box.getAttribute('data-type-line2') || '那就是...';
+    var text2=box.getAttribute('data-type-line2') || '我們想介紹給你……';
     function reset(){
       l1.textContent='';
       l2.textContent='';
@@ -7157,7 +7188,7 @@ button.section-down:hover{
     var l1=target.querySelector('.type-line-1');
     var l2=target.querySelector('.type-line-2');
     var text1=box.getAttribute('data-type-line1') || '如果你還在找那片你與寶寶理想中的完美尿布，';
-    var text2=box.getAttribute('data-type-line2') || '那就是...';
+    var text2=box.getAttribute('data-type-line2') || '我們想介紹給你……';
     var played=false;
     function reset(){l1.textContent='';l2.textContent='';target.classList.remove('typing');box.classList.remove('done','logo-pop');logo.classList.remove('is-pop');logo.style.opacity='0';}
     function type(el,text,cb){var i=0;var t=setInterval(function(){el.textContent=text.slice(0,i++);if(i>text.length){clearInterval(t);setTimeout(cb,320);}},42);}
@@ -7360,7 +7391,7 @@ body::-webkit-scrollbar-thumb{border:6px solid #FFF7E6!important;}
     var l1=target.querySelector('.type-line-1');
     var l2=target.querySelector('.type-line-2');
     var text1=box.getAttribute('data-type-line1') || '如果你還在找那片你與寶寶理想中的完美尿布，';
-    var text2=box.getAttribute('data-type-line2') || '那就是...';
+    var text2=box.getAttribute('data-type-line2') || '我們想介紹給你……';
     var played=false;
     function reset(){
       l1.textContent='';l2.textContent='';
@@ -7452,7 +7483,7 @@ body::-webkit-scrollbar-thumb{border:6px solid #FFF7E6!important;}
       var logo=box.querySelector('.ideal-slogan-logo');
       if(!tw||!l1||!l2) return;
       var t1=box.getAttribute('data-type-line1')||'如果你還在找那片你與寶寶理想中的完美尿布，';
-      var t2=box.getAttribute('data-type-line2')||'那就是...';
+      var t2=box.getAttribute('data-type-line2')||'我們想介紹給你……';
       var started=false;
       function type(el,txt,speed,done){ var i=0; el.textContent=''; function step(){ el.textContent=txt.slice(0,i); i++; if(i<=txt.length){ setTimeout(step, speed); } else { done&&done(); } } step(); }
       function start(){
@@ -7722,7 +7753,7 @@ body{
 
   var titleMap = [
     ['#fear .h2','新手爸媽的小擔心，<br><strong>需要剛剛好的解方！</strong>'],
-    ['#idealNeeds .h2','所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>'],
+    ['#idealNeeds .h2','所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>'],
     ['#realScenes .h2','來自日本的新世代聰明尿布，<br><strong>更貼近寶寶的需求！</strong>'],
     ['#details .h2','柔軟、乾爽、繽紛，<br><strong>都是貼心細節。</strong>'],
     ['#wearing .h2','Mirafeel 2WAY，<br><strong>站著躺著都好穿。</strong>'],
@@ -7772,7 +7803,7 @@ body{
     if(slogan){
       if(!slogan.dataset.desktopHtml) slogan.dataset.desktopHtml = slogan.innerHTML;
       slogan.innerHTML = isMobile()
-        ? '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>'
+        ? '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>'
         : slogan.dataset.desktopHtml;
     }
   }
@@ -7925,7 +7956,7 @@ body{
   function applyMobileTitles(){
     var titleMap = [
       ['#fear .h2','新手爸媽的小擔心，<br><strong>需要剛剛好的解方！</strong>'],
-      ['#idealNeeds .h2','所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>'],
+      ['#idealNeeds .h2','所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>'],
       ['#realScenes .h2','來自日本的新世代聰明尿布，<br><strong>更貼近寶寶的需求！</strong>'],
       ['#details .h2','柔軟、乾爽、繽紛，<br><strong>都是貼心細節。</strong>'],
       ['#wearing .h2','Mirafeel 2WAY，<br><strong>站著躺著都好穿。</strong>'],
@@ -7946,7 +7977,7 @@ body{
     if(slogan){
       if(!slogan.dataset.desktopHtml) slogan.dataset.desktopHtml = slogan.innerHTML;
       slogan.innerHTML = isMobile()
-        ? '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>'
+        ? '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>'
         : slogan.dataset.desktopHtml;
     }
   }
@@ -8018,7 +8049,7 @@ body{
   function applyMobileTitlesAndSub(){
     var titles = [
       ['#fear .h2','新手爸媽的小擔心，<br><strong>需要剛剛好的解方！</strong>'],
-      ['#idealNeeds .h2','所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>'],
+      ['#idealNeeds .h2','所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>'],
       ['#realScenes .h2','來自日本的新世代聰明尿布，<br><strong>更貼近寶寶的需求！</strong>'],
       ['#details .h2','柔軟、乾爽、繽紛，<br><strong>都是貼心細節。</strong>'],
       ['#wearing .h2','Mirafeel 2WAY，<br><strong>站著躺著都好穿。</strong>'],
@@ -8059,7 +8090,7 @@ body{
     if(slogan){
       if(!slogan.dataset.desktopHtml) slogan.dataset.desktopHtml = slogan.innerHTML;
       slogan.innerHTML = isMobile()
-        ? '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>'
+        ? '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>'
         : slogan.dataset.desktopHtml;
     }
   }
@@ -8257,7 +8288,7 @@ body{
     }
     var cta = document.querySelector('.hero-v34-cta');
     if(cta){
-      cta.innerHTML = '看看爸媽挑選尿布的煩惱是？ <span>→</span>';
+      cta.innerHTML = '看看爸媽挑尿布的煩惱 <span>→</span>';
     }
   }
 
@@ -8270,9 +8301,9 @@ body{
     if(type){
       // Protect desktop from disappearing due to previous typewriter scripts.
       if(!isMobile()){
-        type.innerHTML = '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML = '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }else{
-        type.innerHTML = '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML = '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }
     }
 
@@ -8389,7 +8420,7 @@ body{
   function exactHeroCta(){
     var cta=document.querySelector('.hero-v34-cta');
     if(cta){
-      cta.innerHTML='看看爸媽挑選尿布的煩惱是？ <span>→</span>';
+      cta.innerHTML='看看爸媽挑尿布的煩惱 <span>→</span>';
       cta.setAttribute('href','#fearTitle');
       if(!cta.dataset.boundR9){
         cta.dataset.boundR9='1';
@@ -8409,6 +8440,7 @@ body{
 
   function navAfterRealScenes(){
     var real=document.getElementById('realScenes');
+    if(!document.body.classList.contains('stage-gate-unlocked')){ document.body.classList.remove('nav-shop-visible'); return; }
     var threshold=real ? (real.offsetTop - 80) : window.innerHeight * 1.8;
     document.body.classList.toggle('nav-shop-visible', window.scrollY >= threshold);
   }
@@ -8416,7 +8448,7 @@ body{
   function mobileTitles(){
     var titles=[
       ['#fear .h2','爸媽的小擔心，<br><strong>需要剛剛好的解方！</strong>'],
-      ['#idealNeeds .h2','所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>'],
+      ['#idealNeeds .h2','所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>'],
       ['#realScenes .h2','來自日本的新世代聰明尿布，<br><strong>更貼近寶寶的需求！</strong>'],
       ['#details .h2','柔軟、乾爽、繽紛，<br><strong>都是貼心細節。</strong>'],
       ['#wearing .h2','Mirafeel 2WAY，<br><strong>站著躺著都好穿。</strong>'],
@@ -8467,9 +8499,9 @@ body{
     var type=slogan.querySelector('.ideal-typewriter');
     if(type){
       if(!isMobile()){
-        type.innerHTML='<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML='<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }else{
-        type.innerHTML='<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML='<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }
     }
     function update(){
@@ -8605,9 +8637,9 @@ body{
     var type=slogan.querySelector('.ideal-typewriter');
     if(type){
       if(window.matchMedia('(max-width:768px)').matches){
-        type.innerHTML='<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML='<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }else{
-        type.innerHTML='<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+        type.innerHTML='<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       }
     }
 
@@ -8640,6 +8672,7 @@ body{
 
   function navAfterRealScenesV10(){
     var real=document.getElementById('realScenes');
+    if(!document.body.classList.contains('stage-gate-unlocked')){ document.body.classList.remove('nav-shop-visible'); return; }
     var threshold=real ? (real.offsetTop - 80) : window.innerHeight*1.8;
     document.body.classList.toggle('nav-shop-visible', window.scrollY >= threshold);
   }
@@ -8673,7 +8706,7 @@ body{
 
     var type = slogan.querySelector('.ideal-typewriter');
     if(type){
-      type.innerHTML = '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+      type.innerHTML = '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       type.style.opacity = '1';
       type.style.visibility = 'visible';
       type.style.transform = 'none';
@@ -8898,12 +8931,12 @@ body{
   function updateIdealCopy(){
     var h2 = document.querySelector('#idealNeeds .h2');
     if(h2){
-      h2.innerHTML = '所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>';
+      h2.innerHTML = '所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>';
     }
 
     var slogan = document.querySelector('#idealNeeds .ideal-typewriter');
     if(slogan){
-      slogan.innerHTML = '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是</span>';
+      slogan.innerHTML = '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
       slogan.style.opacity = '1';
       slogan.style.visibility = 'visible';
       slogan.style.transform = 'none';
@@ -8951,7 +8984,7 @@ body{
   function removeIdealLogoAndSetCopy(){
     var slogan = document.querySelector('#idealNeeds .ideal-typewriter');
     if(slogan){
-      slogan.innerHTML = '如果你正在尋找一款你與寶寶心中理想的完美尿布，<br>那就是';
+      slogan.innerHTML = '如果你還在尋找一款你與寶寶心中理想的完美尿布，<br>那就是';
       slogan.style.opacity = '1';
       slogan.style.visibility = 'visible';
       slogan.style.transform = 'none';
@@ -8963,7 +8996,7 @@ body{
 
     var idealTitle = document.querySelector('#idealNeeds .h2');
     if(idealTitle){
-      idealTitle.innerHTML = '所以擁有好的尿布，<br><strong>寶寶舒適、爸媽育兒也更方便。</strong>';
+      idealTitle.innerHTML = '所以…擁有理想的尿布，<br><strong>寶寶舒適、爸媽育兒也更輕鬆！</strong>';
     }
   }
 
@@ -9062,7 +9095,7 @@ body{
   function updateIdealCopy(){
     var type = document.querySelector('#idealNeeds .ideal-typewriter');
     if(type){
-      type.innerHTML = '<span class="type-line type-line-1">如果你正在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">那就是.....!!</span>';
+      type.innerHTML = '<span class="type-line type-line-1">如果你還在尋找一款你與寶寶心中理想的完美尿布，</span><br><span class="type-line type-line-2">我們想介紹給你……</span>';
     }
     document.querySelectorAll('#idealNeeds .ideal-slogan-logo').forEach(function(el){ el.remove(); });
   }
@@ -9225,8 +9258,8 @@ body{
     var box = document.querySelector('#idealNeeds .typewriter-slogan');
     var tw = box && box.querySelector('.ideal-typewriter');
     if(!box || !tw) return;
-    box.setAttribute('data-type-line1','如果你正在尋找一款你與寶寶心中理想的完美尿布，');
-    box.setAttribute('data-type-line2','那就是.....!!');
+    box.setAttribute('data-type-line1','如果你還在尋找一款你與寶寶心中理想的完美尿布，');
+    box.setAttribute('data-type-line2','我們想介紹給你……');
     tw.innerHTML = '<span class="type-line type-line-1"></span><br><span class="type-line type-line-2"></span>';
   }
 
@@ -9445,8 +9478,8 @@ body{
 
     document.querySelectorAll('#idealNeeds .ideal-slogan-logo').forEach(function(el){ el.remove(); });
 
-    box.setAttribute('data-r19-line1','如果你正在尋找一款你與寶寶心中理想的完美尿布，');
-    box.setAttribute('data-r19-line2','那就是.....!!');
+    box.setAttribute('data-r19-line1','如果你還在尋找一款你與寶寶心中理想的完美尿布，');
+    box.setAttribute('data-r19-line2','我們想介紹給你……');
 
     if(box.dataset.r19Prepared !== '1'){
       tw.innerHTML = '<span class="type-line type-line-1"></span><br><span class="type-line type-line-2"></span>';
@@ -9463,8 +9496,8 @@ body{
     var line2 = box.querySelector('.type-line-2');
     if(!tw || !line1 || !line2) return;
 
-    var text1 = box.getAttribute('data-r19-line1') || '如果你正在尋找一款你與寶寶心中理想的完美尿布，';
-    var text2 = box.getAttribute('data-r19-line2') || '那就是.....!!';
+    var text1 = box.getAttribute('data-r19-line1') || '如果你還在尋找一款你與寶寶心中理想的完美尿布，';
+    var text2 = box.getAttribute('data-r19-line2') || '我們想介紹給你……';
 
     line1.textContent = '';
     line2.textContent = '';
@@ -9754,8 +9787,8 @@ body{
     box.querySelectorAll('img,.ideal-slogan-logo').forEach(function(el){el.remove();});
     var tw = box.querySelector('.ideal-typewriter');
     if(!tw) return;
-    var line1 = '如果你正在尋找一款你與寶寶心中理想的完美尿布，';
-    var line2 = '那就是.....!!';
+    var line1 = '如果你還在尋找一款你與寶寶心中理想的完美尿布，';
+    var line2 = '我們想介紹給你……';
     box.dataset.r20Line1 = line1;
     box.dataset.r20Line2 = line2;
     tw.innerHTML = '<span class="type-line type-line-1"></span><br><span class="type-line type-line-2"></span>';
@@ -9904,7 +9937,7 @@ body{
   function buildIdealAnimatedText(){
     var sec = document.getElementById('idealNeeds'); if(!sec) return;
     var tw = sec.querySelector('.ideal-typewriter'); if(!tw) return;
-    var line1 = '如果你正在尋找一款你與寶寶心中理想的完美尿布，';
+    var line1 = '如果你還在尋找一款你與寶寶心中理想的完美尿布，';
     var line2 = '那就是';
     tw.innerHTML = '<span class="ideal-line1"></span><span class="ideal-line2"></span>';
     var l1 = tw.querySelector('.ideal-line1'), l2 = tw.querySelector('.ideal-line2');
@@ -10133,24 +10166,178 @@ body.r26-overlay-active {
 })();
 </script>
 
-<style id="v84-r29-desktop-overlay-stable">
-/* R29: desktop-only stable overlay for the pain cards */
+
+<style id="v84-r31-stage-overlay-and-pain-update">
+/* R31: age-first pain interaction + single two-step desktop overlay */
+#fear{position:relative;overflow:hidden!important;}
+#fear .inner{position:relative;isolation:isolate;}
+#fear .pain-stage-head{position:relative;z-index:4;text-align:center;}
+#fear .stage-main-title{margin-top:12px!important;}
+#fear .stage-main-sub{max-width:740px!important;margin-left:auto!important;margin-right:auto!important;}
+#fear .baby-stage-picker{position:relative;z-index:6;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:920px;margin:28px auto 0;}
+#fear .stage-option{appearance:none;border:none;border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,248,224,.96));box-shadow:0 16px 36px rgba(132,88,28,.12), inset 0 0 0 1px rgba(255,255,255,.8);padding:18px 14px 16px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;font-family:var(--round);color:#4a321f;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;}
+#fear .stage-option:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(132,88,28,.18), inset 0 0 0 2px rgba(255,174,55,.38);}
+#fear .stage-option.active{background:linear-gradient(180deg,#FFF0BD,#FFE29A);box-shadow:0 18px 42px rgba(224,139,23,.22), inset 0 0 0 2px rgba(255,151,37,.55);transform:translateY(-3px);}
+#fear .stage-emoji{font-size:30px;line-height:1;}
+#fear .stage-option b{font-size:18px;line-height:1.25;font-weight:950;}
+#fear .stage-option small{font-size:13px;font-weight:900;color:#B56513;letter-spacing:.02em;}
+#fear .stage-result-copy{position:relative;z-index:4;margin-top:34px;display:none;text-align:center;}
+#fear.stage-selected .stage-result-copy{display:block;animation:stageResultIn .38s ease both;}
+@keyframes stageResultIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+#fear:not(.stage-selected) #flipGrid,
+#fear:not(.stage-selected) .pain-mobile-nav{display:none!important;}
+#fear .pain-prompt{display:none!important;}
+
+/* 爸媽煩惱圖永遠維持在卡片下方，不參與點擊與翻卡層 */
+#fear .fear-parent-img{z-index:0!important;pointer-events:none!important;user-select:none!important;}
+#fear #flipGrid{position:relative!important;z-index:8!important;}
+#fear .flip-card{position:relative!important;z-index:9!important;}
+#fear .flip-inner,#fear .flip-front,#fear .flip-back{position:relative!important;z-index:10!important;}
+body.desktop-fear-overlay-active #fear #flipGrid{position:relative!important;z-index:60!important;}
+body.desktop-fear-overlay-active #fear .baby-stage-picker{position:relative!important;z-index:60!important;}
+
 #desktopFearOverlay{position:fixed;inset:0;z-index:20000;display:none;pointer-events:none;}
 body.desktop-fear-overlay-active #desktopFearOverlay{display:block;}
-#desktopFearOverlay .ov-dim{position:fixed;background:rgba(17,12,8,.72);pointer-events:auto;backdrop-filter:blur(1.2px);-webkit-backdrop-filter:blur(1.2px);}
-#desktopFearOverlay .ov-bubble{position:fixed;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#ffa93f 0%, #ff9a2e 100%);color:#fff;border-radius:26px;padding:22px 74px 18px 38px;box-shadow:0 16px 42px rgba(54,30,3,.28);min-width:560px;max-width:min(78vw,760px);text-align:center;pointer-events:auto;}
-#desktopFearOverlay .ov-bubble:after{content:"";position:absolute;left:50%;bottom:-13px;transform:translateX(-50%) rotate(45deg);width:26px;height:26px;border-radius:4px;background:#ff9a2e;}
-#desktopFearOverlay .ov-title{font-size:26px;line-height:1.18;font-weight:900;letter-spacing:-.03em;margin:0;}
-#desktopFearOverlay .ov-sub{font-size:16px;line-height:1.45;font-weight:800;margin:10px 0 0;}
+#desktopFearOverlay .ov-dim{position:fixed;background:transparent!important;pointer-events:auto;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+#desktopFearOverlay .ov-highlight{position:fixed;border-radius:38px;border:2px solid rgba(255,255,255,.70);box-shadow:0 0 0 9999px rgba(17,12,8,.72),0 0 0 1px rgba(255,255,255,.18),0 22px 46px rgba(0,0,0,.12),0 0 34px rgba(255,204,99,.26);pointer-events:none;background:rgba(255,255,255,.035);}
+#desktopFearOverlay .ov-bubble{position:fixed;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#ffb14a 0%,#ff9229 100%);color:#fff;border-radius:32px;padding:22px 74px 18px 38px;box-shadow:0 16px 42px rgba(54,30,3,.28);min-width:560px;max-width:min(78vw,760px);text-align:center;pointer-events:auto;}
+#desktopFearOverlay .ov-bubble:after{content:"";position:absolute;left:50%;bottom:-13px;transform:translateX(-50%) rotate(45deg);width:24px;height:24px;border-radius:8px;background:#ff9229;}
+#desktopFearOverlay .ov-bubble.ov-below:after{top:-13px;bottom:auto;background:#ffa93f;}
+#desktopFearOverlay .ov-title{font-size:25px;line-height:1.25;font-weight:950;letter-spacing:-.03em;margin:0;}
+#desktopFearOverlay .ov-sub{font-size:16px;line-height:1.45;font-weight:850;margin:10px 0 0;}
+#desktopFearOverlay .ov-stage-arrow{position:fixed;z-index:20032;color:#F14E47;font-size:46px;font-weight:900;line-height:1;text-shadow:0 10px 22px rgba(60,8,8,.24);pointer-events:none;display:none;animation:ovStageArrowBounce 1s ease-in-out infinite;}
+#desktopFearOverlay.stage-step .ov-stage-arrow{display:block;}
+@keyframes ovStageArrowBounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
 #desktopFearOverlay .ov-close{position:absolute;right:14px;top:14px;width:38px;height:38px;border:none;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;font-size:28px;line-height:1;font-weight:700;cursor:pointer;display:grid;place-items:center;}
 #desktopFearOverlay .ov-close:hover{background:rgba(255,255,255,.36);}
-#desktopFearOverlay .ov-highlight{position:fixed;border-radius:34px;border:1px solid rgba(255,255,255,.34);box-shadow:0 0 0 1px rgba(255,255,255,.1), 0 18px 40px rgba(0,0,0,.08);pointer-events:none;background:transparent;}
+body.r31-overlay-dismissed #desktopFearOverlay,
+body.r31-overlay-dismissed.desktop-fear-overlay-active #desktopFearOverlay{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
 
-/* keep cards visually above page but not reflow anything */
-body.desktop-fear-overlay-active #fear #flipGrid{position:relative;z-index:1;}
+@media(max-width:1024px){
+  body.desktop-fear-overlay-active #desktopFearOverlay{display:none!important;}
+}
+@media(max-width:980px){
+  #fear .baby-stage-picker{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;}
+}
+@media(max-width:640px){
+  #fear .pain-stage-head{text-align:center!important;}
+  #fear .stage-main-title{font-size:clamp(25px,7.4vw,32px)!important;line-height:1.22!important;white-space:normal!important;}
+  #fear .stage-main-sub{font-size:14px!important;line-height:1.65!important;max-width:340px!important;}
+  #fear .baby-stage-picker{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px;}
+  #fear .stage-option{border-radius:20px;padding:14px 8px 12px;}
+  #fear .stage-emoji{font-size:25px;}
+  #fear .stage-option b{font-size:15px;}
+  #fear .stage-option small{font-size:12px;}
+  #fear .stage-result-copy{margin-top:24px;}
+  #fear.stage-selected .pain-mobile-nav{display:flex!important;}
+}
+</style>
 
-@media (max-width: 1024px){
-  body.desktop-fear-overlay-active #desktopFearOverlay{display:none !important;}
+
+<style id="v84-r32-stage-replace-and-flip-fix">
+/* R32: first question replaces into the second question after selection; desktop overlay targets first question only. */
+#fear.stage-selected .stage-kicker,
+#fear.stage-selected .stage-main-title,
+#fear.stage-selected .stage-main-sub,
+#fear.stage-selected .baby-stage-picker{display:none!important;}
+#fear.stage-selected .stage-result-copy{display:block!important;margin-top:0!important;animation:stageResultIn .34s ease both;}
+#fear .stage-reselect-btn{appearance:none;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:#B56513;font-weight:900;font-family:var(--round);padding:10px 18px;margin:14px auto 0;box-shadow:0 10px 24px rgba(132,88,28,.11), inset 0 0 0 1px rgba(255,167,48,.24);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+#fear .stage-reselect-btn:hover{transform:translateY(-2px);background:#fff7df;box-shadow:0 14px 30px rgba(132,88,28,.16), inset 0 0 0 1px rgba(255,151,37,.36);}
+/* Keep the parent worry illustration under the cards at all times. */
+#fear .fear-parent-img{z-index:0!important;pointer-events:none!important;user-select:none!important;}
+#fear #flipGrid{position:relative!important;z-index:8!important;}
+#fear .flip-card{position:relative!important;z-index:9!important;}
+#fear .flip-inner{position:relative!important;width:100%!important;height:100%!important;z-index:10!important;}
+@media (min-width:769px){
+  #fear .flip-grid{align-items:stretch!important;margin-top:28px!important;}
+  #fear .flip-card{overflow:visible!important;}
+  #fear .flip-front,
+  #fear .flip-back{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;z-index:10!important;}
+  #fear .flip-back{transform:rotateY(180deg)!important;overflow:hidden!important;}
+  #fear .flip-card.flipped .flip-inner{transform:rotateY(180deg)!important;}
+  body.desktop-fear-overlay-active #fear #flipGrid{z-index:8!important;}
+  body.desktop-fear-overlay-active #fear .baby-stage-picker{z-index:60!important;}
+}
+@media (max-width:768px){
+  #fear.stage-selected .stage-result-copy{margin-top:0!important;}
+  #fear .stage-reselect-btn{font-size:13px;padding:9px 14px;margin-top:10px;}
+}
+</style>
+
+
+<style id="v84-r33-stage-gate-and-position-fix">
+/* R33: Before the baby stage is selected, hide every section below the stage question.
+   This makes the first interaction clear without adding another overlay system. */
+body:not(.stage-gate-unlocked) #idealNeeds,
+body:not(.stage-gate-unlocked) #realScenes,
+body:not(.stage-gate-unlocked) #details,
+body:not(.stage-gate-unlocked) #wearing,
+body:not(.stage-gate-unlocked) #compare,
+body:not(.stage-gate-unlocked) #quality,
+body:not(.stage-gate-unlocked) #reviews,
+body:not(.stage-gate-unlocked) #faq,
+body:not(.stage-gate-unlocked) #size,
+body:not(.stage-gate-unlocked) #cta{
+  display:none!important;
+}
+
+/* Keep the first question as the only visible content in this section before selection. */
+#fear:not(.stage-selected) .fear-parent-img,
+#fear:not(.stage-selected) #flipGrid,
+#fear:not(.stage-selected) .pain-mobile-nav{
+  display:none!important;
+}
+
+/* Move the first question slightly lower and center it like a standalone interaction panel. */
+#fear:not(.stage-selected){
+  min-height:100svh!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#fear:not(.stage-selected) .inner{
+  min-height:calc(100svh - 170px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#fear:not(.stage-selected) .pain-stage-head{
+  width:100%!important;
+  transform:translateY(3.5vh)!important;
+}
+
+/* Once the stage is selected, return to normal section flow so the result cards and next sections are stable. */
+#fear.stage-selected .inner{
+  min-height:auto!important;
+  display:block!important;
+}
+#fear.stage-selected .pain-stage-head{
+  transform:none!important;
+}
+
+/* Keep the desktop overlay focused only on the first question. */
+body.desktop-fear-overlay-active.stage-gate-locked #fear .baby-stage-picker{
+  position:relative!important;
+  z-index:60!important;
+}
+body.desktop-fear-overlay-active.stage-gate-locked #fear .pain-stage-head{
+  position:relative!important;
+  z-index:58!important;
+}
+
+@media(max-width:768px){
+  #fear:not(.stage-selected){
+    min-height:auto!important;
+    display:block!important;
+  }
+  #fear:not(.stage-selected) .inner{
+    min-height:auto!important;
+    display:block!important;
+  }
+  #fear:not(.stage-selected) .pain-stage-head{
+    transform:none!important;
+    padding-top:10px!important;
+  }
 }
 </style>
 
@@ -10160,266 +10347,416 @@ body.desktop-fear-overlay-active #fear #flipGrid{position:relative;z-index:1;}
   <div class="ov-dim ov-right"></div>
   <div class="ov-dim ov-bottom"></div>
   <div class="ov-highlight"></div>
-  <div class="ov-bubble" role="dialog" aria-label="哪些是你挑選尿布的煩惱？">
+    <div class="ov-bubble" role="dialog" aria-label="初次見面，你家寶寶現在在哪個階段？">
     <button aria-label="關閉提示" class="ov-close" type="button">×</button>
-    <p class="ov-title">哪些是你挑選尿布的煩惱？</p>
-    <p class="ov-sub">請點擊「找解方」擊退煩惱吧！</p>
+    <p class="ov-title">初次見面～你家寶寶現在在哪個階段？</p>
+    <p class="ov-sub">請選一個最接近的階段</p>
   </div>
 </div>
 
-<script id="v84-r29-desktop-overlay-stable-script">
+<script id="v84-r31-stage-overlay-and-pain-update-script">
 (function(){
-  var KEY = 'mirafeel_desktop_overlay_seen_v29';
-  var overlay = null, bubble = null, highlight = null;
-  var dims = {};
-  var fear = null, grid = null, realScenes = null;
-  var hasShown = false;
-  var isOpen = false;
+  var STAGE_OVERLAY_KEY='mirafeel_desktop_overlay_stage_seen_v37';
+  var CARDS_OVERLAY_KEY='mirafeel_desktop_overlay_cards_seen_v37';
+  var overlay,bubble,highlight,dims={},fear,picker,grid,answerLine,stageArrows=[];
+  var isOpen=false,overlayStep='stage',stageDismissed=false,cardsDismissed=false;
+  var currentStage=null,currentMobile=0;
+  var solutionHappyImg='mirafeel/images/image_29_a7cf5da746.png';
 
-  function isDesktop(){ return window.matchMedia('(min-width: 1025px)').matches; }
+  var stageData={
+    newborn:{
+      resultTitle:'新生兒期的小擔心，<br><strong>更需要溫柔又安心的包覆。</strong>',
+      resultSub:'0–3M 的寶寶肌膚細緻、換尿布頻率高，爸媽最在意的是柔軟、吸收與不勒小肚肚。',
+      cards:[
+        {emoji:'🍼🥺',title:'剛開始用尿布，會不會磨到嫩嫩肌膚？',grumble:'「寶寶皮膚這麼細，材質會不會太粗、太悶？」',label:'理想解方',backTitle:'柔軟親膚，先把不適感降下來',sol:'理想的解方，是表層柔軟、觸感細緻，減少摩擦與悶熱感；讓寶寶剛開始長時間穿尿布，也能被溫柔包覆。',color:'#ff9abb'},
+        {emoji:'💧🌙',title:'尿尿次數多，半夜也怕濕濕不舒服？',grumble:'「明明才剛換，怎麼又擔心是不是濕了？」',label:'理想解方',backTitle:'吸得快，也要不容易回滲',sol:'理想的解方，是能快速吸收並鎖住濕氣，表層維持乾爽；減少寶寶因濕悶而醒來，爸媽半夜也比較安心。',color:'#70b9f8'},
+        {emoji:'🤲💛',title:'想包穩一點，又怕勒到小肚肚？',grumble:'「包太鬆怕漏，包太緊又怕寶寶不舒服。」',label:'理想解方',backTitle:'穩穩包住，但不要緊繃',sol:'理想的解方，是腰腿位置柔軟貼合，能順著寶寶身形調整；讓尿布穩定包覆，同時減少勒痕與壓迫感。',color:'#ffd560'},
+        {emoji:'⏰😵‍💫',title:'一天換好多次，爸媽也想更順手一點？',grumble:'「新手爸媽已經很忙了，換尿布能不能少一點慌張？」',label:'理想解方',backTitle:'好攤、好對位，照顧更從容',sol:'理想的解方，是穿脫步驟直覺、腰腿位置好整理；就算一天要換很多次，也能讓爸媽更快找到節奏。',color:'#57cfc3'}
+      ]
+    },
+    moving:{
+      resultTitle:'開始好動的小擔心，<br><strong>更需要貼合與順手更換。</strong>',
+      resultSub:'4–6M 的寶寶開始好動、踢腳、翻來翻去，爸媽會更在意換尿布效率與活動時的舒適度。',
+      cards:[
+        {emoji:'🌀😭',title:'寶寶開始扭來扭去，尿布總是包不好？',grumble:'「以前乖乖躺著，現在一換尿布就像小章魚！」',label:'理想解方',backTitle:'寶寶開始好動，爸媽也要好包',sol:'理想的解方，是可以快速拉上，也能在需要時打開微調；寶寶扭來扭去時，爸媽仍能把腰腿位置整理到剛好。',color:'#ff8db5'},
+        {emoji:'🥺🩹',title:'腿圍紅紅的，是不是讓你很心疼？',grumble:'「活動變多後，摩擦和勒痕好像更明顯了。」',label:'理想解方',backTitle:'柔軟貼合，減少摩擦不適',sol:'理想的解方，是腿圍柔軟貼合但不緊勒，搭配親膚表層；讓寶寶踢腳、翻身時，也能舒服活動。',color:'#48c7bd'},
+        {emoji:'☀️💦',title:'白天活動變多，屁屁會不會悶悶的？',grumble:'「抱著、躺著、練翻身，總覺得尿布裡好悶。」',label:'理想解方',backTitle:'乾爽透氣，活動時也舒服',sol:'理想的解方，是吸收後表層不易回滲，並減少悶熱感；讓寶寶白天活動量增加時，屁屁也能維持清爽。',color:'#ffd84f'},
+        {emoji:'🌙😵‍💫',title:'半夜漏尿，爸媽是不是也睡不安穩？',grumble:'「睡前明明包好了，早上還是怕濕一片。」',label:'理想解方',backTitle:'夜間穩穩貼合，少一點巡邏',sol:'理想的解方，是吸收力夠、腰腿圍穩定貼合；減少夜間外漏與回滲，讓寶寶和爸媽都睡得更安穩。',color:'#69b8f7'}
+      ]
+    },
+    crawling:{
+      resultTitle:'翻身爬行期的小擔心，<br><strong>更需要跟得上寶寶的活動力。</strong>',
+      resultSub:'7–12M 的寶寶活動量變大，換尿布像追逐賽，尺寸、貼合、防漏都會變得更有感。',
+      cards:[
+        {emoji:'🐾🏃',title:'一翻身就爬走，尿布還沒穿好？',grumble:'「才剛攤開尿布，寶寶已經準備逃跑了。」',label:'理想解方',backTitle:'不一定要躺好，也能快速換',sol:'理想的解方，是能像褲型一樣快速穿上，也能打開調整；寶寶不想躺好時，爸媽仍能更順手完成更換。',color:'#ff8db5'},
+        {emoji:'📏😟',title:'尺寸尷尬期，到底該不該換大？',grumble:'「小一號怕緊，大一號又怕鬆、怕漏。」',label:'理想解方',backTitle:'尺寸交界，也能保有彈性',sol:'理想的解方，是腰圍與腿圍都有可調整空間；尺寸交界時能依寶寶身形微調，減少太緊、太鬆或外漏的擔心。',color:'#ffd84f'},
+        {emoji:'🌀💨',title:'爬來爬去，尿布會不會位移？',grumble:'「活動量一大，就怕尿布歪掉、空隙跑出來。」',label:'理想解方',backTitle:'活動量大，也要穩穩貼合',sol:'理想的解方，是腰腿圍能跟著身形貼合，活動時不容易鬆動；讓寶寶爬行探索時，爸媽少一點擔心。',color:'#48c7bd'},
+        {emoji:'💧😣',title:'喝奶吃副食品後，吸收力還夠嗎？',grumble:'「白天玩得多、喝得多，就怕一下子濕悶。」',label:'理想解方',backTitle:'快速吸收，減少回滲濕悶',sol:'理想的解方，是吸收速度快、鎖水穩定，表層不容易回滲；寶寶活動時也能維持乾爽舒適。',color:'#69b8f7'}
+      ]
+    },
+    walking:{
+      resultTitle:'學站學走期的小擔心，<br><strong>更需要快速、貼合又能微調。</strong>',
+      resultSub:'1Y+ 的寶寶更想站著、走著、跑著探索，爸媽會更在意快速穿脫與活動時的穩定貼合。',
+      cards:[
+        {emoji:'👣💨',title:'站起來就想跑，尿布能不能快點穿好？',grumble:'「寶寶不想躺下，爸媽只好邊追邊換。」',label:'理想解方',backTitle:'站著也能更快完成更換',sol:'理想的解方，是能直接拉上、快速穿好；外出、睡前或寶寶不想躺下時，都能讓爸媽少一點手忙腳亂。',color:'#ff8db5'},
+        {emoji:'🩲🤔',title:'褲型方便，但有時又想可以打開調整？',grumble:'「想要快速穿，但又怕穿上後不夠貼合。」',label:'理想解方',backTitle:'兼顧快速穿與可微調',sol:'理想的解方，是保有褲型的便利，也能像黏貼型一樣打開調整；穿上後還能確認腰腿位置是否剛剛好。',color:'#ffd84f'},
+        {emoji:'🏃‍♂️💧',title:'跑跑跳跳，最怕活動時外漏？',grumble:'「動作越大，越怕腰腿空隙沒包好。」',label:'理想解方',backTitle:'活動時也要穩定防漏',sol:'理想的解方，是腰圍與腿圍能穩穩貼合，並搭配良好吸收；寶寶走路、蹲下、爬上爬下時，也比較不容易外漏。',color:'#69b8f7'},
+        {emoji:'🎒⏰',title:'外出換尿布，能不能更俐落？',grumble:'「公共空間換尿布，越快越安心。」',label:'理想解方',backTitle:'外出、睡前、半夜都更順手',sol:'理想的解方，是穿脫方式彈性、整理步驟簡單；不論在家或外出，都能讓爸媽更快完成更換。',color:'#48c7bd'}
+      ]
+    }
+  };
 
-  function qs(sel){ return document.querySelector(sel); }
+  function isDesktop(){return window.matchMedia&&window.matchMedia('(min-width:1025px)').matches;}
+  function qs(s){return document.querySelector(s);}
+  function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+  function inViewportEnough(el,ratio){if(!el)return false;var r=el.getBoundingClientRect();var vh=window.innerHeight||document.documentElement.clientHeight;var visible=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));return visible>=Math.min(r.height,vh)*ratio;}
+  function markSeen(step){if(step==='cards'){cardsDismissed=true;}else{stageDismissed=true;}try{if(step==='cards'){sessionStorage.setItem(CARDS_OVERLAY_KEY,'1');sessionStorage.setItem('mirafeel_desktop_overlay_seen_v29','1');sessionStorage.setItem('mirafeel_desktop_overlay_dismissed_v30','1');}else{sessionStorage.setItem(STAGE_OVERLAY_KEY,'1');}}catch(e){}}
+  function getAnswerLine(){return qs('#idealNeeds .type-line-2')||qs('#idealNeeds .ideal-line2')||qs('#idealNeeds .ideal-wave-line.line-2');}
+  function hasScrolledPastAnswerLine(){var line=getAnswerLine();if(!line)return false;return line.getBoundingClientRect().bottom<0;}
 
-  function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
-
-  function markSeen(){
-    hasShown = true;
-    try{ sessionStorage.setItem(KEY, '1'); }catch(e){}
+  function makeCard(p){
+    var card=document.createElement('button');
+    card.className='flip-card';
+    card.type='button';
+    card.style.setProperty('--blob',p.color);
+    card.innerHTML='<div class="flip-inner"><div class="flip-front"><div><div class="flip-emoji">'+p.emoji+'</div><h3 class="flip-title">'+p.title+'</h3><p class="flip-grumble">'+p.grumble+'</p></div><span class="find-btn">找解方</span></div><div class="flip-back"><div><div class="solution-label">'+p.label+'</div><h3>'+p.backTitle+'</h3><p>'+p.sol+'</p></div><img class="solution-img" src="'+solutionHappyImg+'" alt="爸媽覺得安心的插圖"><span class="find-btn">再看一次</span></div></div>';
+    card.addEventListener('click',function(){card.classList.toggle('flipped');if(typeof spark==='function')spark(card);});
+    return card;
   }
 
-  function computeRect(){
-    if(!grid) return null;
-    var rect = grid.getBoundingClientRect();
-    if(rect.width < 20 || rect.height < 20) return null;
-    var pad = 10;
-    return {
-      top: clamp(rect.top - pad, 12, window.innerHeight - 12),
-      left: clamp(rect.left - pad, 12, window.innerWidth - 12),
-      width: Math.min(rect.width + pad*2, window.innerWidth - 24),
-      height: Math.min(rect.height + pad*2, window.innerHeight - 24)
-    };
+  function setupMobileNav(){
+    var nav=fear.querySelector('.pain-mobile-nav');
+    if(!nav){
+      nav=document.createElement('div');
+      nav.className='pain-mobile-nav';
+      nav.innerHTML='<button type="button" class="pain-prev" aria-label="上一個煩惱">‹</button><span class="pain-mobile-count">煩惱1</span><button type="button" class="pain-next" aria-label="下一個煩惱">›</button>';
+      grid.parentNode.insertBefore(nav,grid);
+    }
+    var prev=nav.querySelector('.pain-prev'),next=nav.querySelector('.pain-next');
+    if(prev) prev.onclick=function(e){e.preventDefault();setMobileActive(currentMobile-1);};
+    if(next) next.onclick=function(e){e.preventDefault();setMobileActive(currentMobile+1);};
+    setMobileActive(0);
   }
-
-  function layout(){
-    if(!isOpen || !isDesktop()) return;
-    var r = computeRect();
-    if(!r) return;
-    var top = r.top, left = r.left, width = r.width, height = r.height;
-    var right = left + width, bottom = top + height;
-
-    dims.top.style.top = '0px'; dims.top.style.left = '0px'; dims.top.style.width = '100vw'; dims.top.style.height = top + 'px';
-    dims.left.style.top = top + 'px'; dims.left.style.left = '0px'; dims.left.style.width = left + 'px'; dims.left.style.height = height + 'px';
-    dims.right.style.top = top + 'px'; dims.right.style.left = right + 'px'; dims.right.style.width = Math.max(0, window.innerWidth - right) + 'px'; dims.right.style.height = height + 'px';
-    dims.bottom.style.top = bottom + 'px'; dims.bottom.style.left = '0px'; dims.bottom.style.width = '100vw'; dims.bottom.style.height = Math.max(0, window.innerHeight - bottom) + 'px';
-
-    highlight.style.top = top + 'px';
-    highlight.style.left = left + 'px';
-    highlight.style.width = width + 'px';
-    highlight.style.height = height + 'px';
-
-    var bubbleTop = Math.max(20, top - 138);
-    bubble.style.top = bubbleTop + 'px';
-  }
-
-  function closeOverlay(){
-    if(!overlay) return;
-    isOpen = false;
-    document.body.classList.remove('desktop-fear-overlay-active');
-    overlay.style.display = 'none';
-    markSeen();
-  }
-
-  function openOverlay(){
-    if(!overlay || !fear || !grid) return;
-    if(!isDesktop() || hasShown || isOpen) return;
-    isOpen = true;
-    overlay.style.display = 'block';
-    document.body.classList.add('desktop-fear-overlay-active');
-    layout();
-  }
-
-  function inViewportEnough(el, ratio){
-    if(!el) return false;
-    var r = el.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
-    return visible >= Math.min(r.height, vh) * ratio;
-  }
-
-  function maybeToggle(){
-    if(!overlay || !fear || !grid) return;
-    if(!isDesktop()) { closeOverlay(); return; }
-    if(hasShown) return;
-
-    if(realScenes && inViewportEnough(realScenes, 0.1)){
-      if(isOpen) closeOverlay();
+  function setMobileActive(i){
+    var cards=Array.prototype.slice.call(grid.querySelectorAll('.flip-card'));
+    if(!cards.length)return;
+    if(!(window.matchMedia&&window.matchMedia('(max-width:768px)').matches)){
+      cards.forEach(function(c){c.classList.remove('mobile-active');});
       return;
     }
+    currentMobile=(i+cards.length)%cards.length;
+    cards.forEach(function(c,idx){c.classList.toggle('mobile-active',idx===currentMobile);if(idx!==currentMobile)c.classList.remove('flipped');});
+    var count=fear.querySelector('.pain-mobile-count');
+    if(count)count.textContent='煩惱'+(currentMobile+1);
+  }
 
-    // show only when the cards themselves are on screen
-    if(inViewportEnough(grid, 0.35)){
-      openOverlay();
-    } else if(isOpen){
-      // keep open while user is around fear section, but dismiss if they moved away far enough down to Mirafeel section handled above
-      layout();
+  function renderStage(stage){
+    var data=stageData[stage]; if(!data||!grid)return;
+    currentStage=stage; currentMobile=0;
+    fear.classList.add('stage-selected');
+    document.body.classList.remove('stage-gate-locked');
+    document.body.classList.add('stage-gate-unlocked');
+    picker.querySelectorAll('.stage-option').forEach(function(btn){btn.classList.toggle('active',btn.getAttribute('data-stage')===stage);btn.setAttribute('aria-pressed',btn.getAttribute('data-stage')===stage?'true':'false');});
+    var title=qs('#stageResultTitle'),sub=qs('#stageResultSub');
+    if(title)title.innerHTML=data.resultTitle;
+    if(sub)sub.textContent=data.resultSub;
+    grid.innerHTML='';
+    data.cards.forEach(function(c){grid.appendChild(makeCard(c));});
+    setupMobileNav();
+    setTimeout(function(){setMobileActive(0);layoutOverlay();var stageCopy=qs('#stageResultCopy');if(stageCopy){var offset=isDesktop()?112:82;var targetTop=stageCopy.getBoundingClientRect().top+window.scrollY-offset;if(Math.abs(window.scrollY-targetTop)>20){window.scrollTo({top:targetTop,behavior:'smooth'});}}},60);
+    stageDismissed=true; try{sessionStorage.setItem(STAGE_OVERLAY_KEY,'1');}catch(e){}
+    if(isDesktop()&&!cardsDismissed&&!hasScrolledPastAnswerLine()){
+      if(isOpen){ setOverlayStep('cards'); }
+      else{ openOverlay('cards'); }
+      setTimeout(layoutOverlay,90);
     }
   }
 
-  function bindClose(target){
-    if(target){ target.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); closeOverlay(); }); }
+  function resetStage(){
+    currentStage=null; currentMobile=0;
+    fear.classList.remove('stage-selected');
+    document.body.classList.add('stage-gate-locked');
+    document.body.classList.remove('stage-gate-unlocked');
+    grid.innerHTML='';
+    picker.querySelectorAll('.stage-option').forEach(function(btn){
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed','false');
+    });
+    var nav=fear.querySelector('.pain-mobile-nav');
+    if(nav)nav.style.display='none';
+    var title=qs('#stageResultTitle'),sub=qs('#stageResultSub');
+    if(title)title.innerHTML='每一個階段的小擔心，<br/><strong>都需要剛剛好的解法！</strong>';
+    if(sub)sub.textContent='哪些是你現在挑選尿布的煩惱？請點擊「找解方」看看如何擊退煩惱吧！';
+    if(isOpen){ overlayStep='stage'; }
+    setTimeout(function(){maybeOpenOverlay();layoutOverlay();},60);
   }
 
+  function overlayTarget(){
+    if(overlayStep==='cards'){
+      var result=qs('#stageResultCopy');
+      if(result&&grid&&grid.children.length){ return {result:result, grid:grid}; }
+      return grid;
+    }
+    return picker;
+  }
+  function computeRect(){
+    var target=overlayTarget(); if(!target)return null;
+    var rect,pad=14;
+    if(target.result&&target.grid){
+      var rr=target.result.getBoundingClientRect();
+      var gr=target.grid.getBoundingClientRect();
+      rect={top:Math.min(rr.top,gr.top),left:Math.min(rr.left,gr.left),right:Math.max(rr.right,gr.right),bottom:Math.max(rr.bottom,gr.bottom),width:Math.max(rr.right,gr.right)-Math.min(rr.left,gr.left),height:Math.max(rr.bottom,gr.bottom)-Math.min(rr.top,gr.top)};
+    }else{
+      rect=target.getBoundingClientRect();
+    }
+    if(rect.width<20||rect.height<20)return null;
+    return {top:clamp(rect.top-pad,12,window.innerHeight-12),left:clamp(rect.left-pad,12,window.innerWidth-12),width:Math.min(rect.width+pad*2,window.innerWidth-24),height:Math.min(rect.height+pad*2,window.innerHeight-24)};
+  }
+  function setBubbleCopy(){
+    var title=bubble&&bubble.querySelector('.ov-title'),sub=bubble&&bubble.querySelector('.ov-sub');
+    if(!title||!sub)return;
+    overlay.classList.toggle('stage-step', overlayStep==='stage');
+    overlay.classList.toggle('cards-step', overlayStep==='cards');
+    if(overlayStep==='cards'){
+      title.textContent='哪些是你現在挑選尿布的煩惱？';
+      sub.textContent='請點擊「找解方」看看如何擊退煩惱吧！';
+      bubble.setAttribute('aria-label','哪些是你現在挑選尿布的煩惱？');
+    }else{
+      title.textContent='初次見面～你家寶寶現在在哪個階段？';
+      sub.textContent='請選一個最接近的階段';
+      bubble.setAttribute('aria-label','初次見面，你家寶寶現在在哪個階段？');
+    }
+  }
+  function layoutOverlay(){
+    if(!isOpen||!isDesktop())return;
+    var r=computeRect(); if(!r)return;
+    var top=r.top,left=r.left,width=r.width,height=r.height,right=left+width,bottom=top+height;
+    dims.top.style.top='0px';dims.top.style.left='0px';dims.top.style.width='100vw';dims.top.style.height=top+'px';
+    dims.left.style.top=top+'px';dims.left.style.left='0px';dims.left.style.width=left+'px';dims.left.style.height=height+'px';
+    dims.right.style.top=top+'px';dims.right.style.left=right+'px';dims.right.style.width=Math.max(0,window.innerWidth-right)+'px';dims.right.style.height=height+'px';
+    dims.bottom.style.top=bottom+'px';dims.bottom.style.left='0px';dims.bottom.style.width='100vw';dims.bottom.style.height=Math.max(0,window.innerHeight-bottom)+'px';
+    highlight.style.top=top+'px';highlight.style.left=left+'px';highlight.style.width=width+'px';highlight.style.height=height+'px';
+    setBubbleCopy();
+    bubble.classList.remove('ov-below');
+    var bH=bubble.offsetHeight||118;
+    var bubbleTop=top-bH-36;
+    if(bubbleTop<16){bubbleTop=Math.min(window.innerHeight-bH-16,bottom+34);bubble.classList.add('ov-below');}
+    bubble.style.top=Math.max(16,bubbleTop)+'px';
+    stageArrows.forEach(function(a){a.style.display='none';});
+    if(overlayStep==='stage' && picker && stageArrows.length){
+      var opts=picker.querySelectorAll('.stage-option');
+      Array.prototype.forEach.call(opts,function(opt,idx){
+        var a=stageArrows[idx]; if(!a) return;
+        var or=opt.getBoundingClientRect();
+        a.style.display='block';
+        a.style.left=(or.right - 10)+'px';
+        a.style.top=(or.bottom - 6)+'px';
+      });
+    }
+  }
+  function closeOverlay(){
+    if(!overlay)return; var step=overlayStep; isOpen=false; markSeen(step); document.body.classList.remove('desktop-fear-overlay-active'); overlay.style.display='none'; overlay.style.opacity='0'; overlay.style.visibility='hidden'; overlay.style.pointerEvents='none'; stageArrows.forEach(function(a){a.style.display='none';});
+  }
+  function openOverlay(step){
+    if(!overlay||!isDesktop()||isOpen)return;
+    step=step||'stage';
+    if((step==='stage'&&stageDismissed)||(step==='cards'&&cardsDismissed))return;
+    overlayStep=step; isOpen=true; overlay.style.display='block'; overlay.style.opacity='1'; overlay.style.visibility='visible'; overlay.style.pointerEvents='none'; document.body.classList.add('desktop-fear-overlay-active'); layoutOverlay();
+  }
+  function setOverlayStep(step){overlayStep=step; if(isOpen){layoutOverlay();setTimeout(layoutOverlay,80);}}
+  function maybeOpenOverlay(){
+    if(!isDesktop()){if(isOpen)closeOverlay();return;}
+    if(isOpen)return;
+    if(hasScrolledPastAnswerLine()){if(isOpen)closeOverlay();return;}
+    if(!currentStage&&!stageDismissed&&picker&&inViewportEnough(picker,.45))openOverlay('stage');
+    else if(currentStage&&!cardsDismissed&&grid&&grid.children.length&&inViewportEnough(grid,.28))openOverlay('cards');
+  }
+  function onDocClick(e){
+    if(!isDesktop()||!isOpen)return;
+    var stageBtn=e.target.closest&&e.target.closest('#babyStagePicker .stage-option');
+    if(overlayStep==='stage'){
+      if(stageBtn)return;
+      if(e.target.closest&&e.target.closest('#desktopFearOverlay .ov-bubble'))return;
+      // clicks on dim areas close via their own handlers; do not close clicks inside the highlighted picker hole
+      if(!(e.target.closest&&e.target.closest('#babyStagePicker')))closeOverlay();
+      return;
+    }
+    // Step 2: any page click closes, while allowing the original click to flip cards/buttons.
+    if(e.target.closest&&e.target.closest('#desktopFearOverlay .ov-bubble'))return;
+    closeOverlay();
+  }
   function init(){
-    overlay = qs('#desktopFearOverlay');
-    bubble = overlay ? overlay.querySelector('.ov-bubble') : null;
-    highlight = overlay ? overlay.querySelector('.ov-highlight') : null;
-    dims.top = overlay ? overlay.querySelector('.ov-top') : null;
-    dims.left = overlay ? overlay.querySelector('.ov-left') : null;
-    dims.right = overlay ? overlay.querySelector('.ov-right') : null;
-    dims.bottom = overlay ? overlay.querySelector('.ov-bottom') : null;
-    fear = qs('#fear');
-    grid = qs('#flipGrid');
-    realScenes = qs('#realScenes');
-
-    try{ hasShown = sessionStorage.getItem(KEY) === '1'; }catch(e){ hasShown = false; }
-
-    if(!overlay || !bubble || !highlight || !fear || !grid) return;
-
-    bindClose(overlay.querySelector('.ov-close'));
-    ['top','left','right','bottom'].forEach(function(k){ bindClose(dims[k]); });
-    // clicking bubble body should not close
-    bubble.addEventListener('click', function(e){ e.stopPropagation(); });
-
-    window.addEventListener('scroll', function(){ if(isOpen) layout(); maybeToggle(); }, {passive:true});
-    window.addEventListener('resize', function(){ if(isOpen) layout(); maybeToggle(); });
-    maybeToggle();
-    setTimeout(maybeToggle, 300);
+    overlay=qs('#desktopFearOverlay'); bubble=overlay&&overlay.querySelector('.ov-bubble'); highlight=overlay&&overlay.querySelector('.ov-highlight');
+    if(overlay && !overlay.querySelector('.ov-stage-arrow')){ for(var ai=0; ai<4; ai++){ var a=document.createElement('div'); a.className='ov-stage-arrow'; a.setAttribute('aria-hidden','true'); a.textContent='↖'; overlay.appendChild(a);} }
+    stageArrows = overlay ? Array.prototype.slice.call(overlay.querySelectorAll('.ov-stage-arrow')) : [];
+    dims.top=overlay&&overlay.querySelector('.ov-top'); dims.left=overlay&&overlay.querySelector('.ov-left'); dims.right=overlay&&overlay.querySelector('.ov-right'); dims.bottom=overlay&&overlay.querySelector('.ov-bottom');
+    fear=qs('#fear'); picker=qs('#babyStagePicker'); grid=qs('#flipGrid'); answerLine=getAnswerLine();
+    if(!fear||!picker||!grid||!overlay||!bubble||!highlight)return;
+    try{stageDismissed=sessionStorage.getItem(STAGE_OVERLAY_KEY)==='1'; cardsDismissed=sessionStorage.getItem(CARDS_OVERLAY_KEY)==='1';}catch(e){stageDismissed=false; cardsDismissed=false;}
+    // R33: before choosing a baby stage, keep the rest of the LP hidden so the interaction is mandatory but gentle.
+    document.body.classList.add('stage-gate-locked');
+    document.body.classList.remove('stage-gate-unlocked');
+    fear.classList.remove('stage-selected'); grid.innerHTML='';
+    picker.querySelectorAll('.stage-option').forEach(function(btn){btn.setAttribute('aria-pressed','false');btn.addEventListener('click',function(){renderStage(btn.getAttribute('data-stage'));});});
+    var resetBtn=qs('#stageResetBtn');
+    if(resetBtn)resetBtn.addEventListener('click',function(e){e.preventDefault();resetStage();});
+    var close=overlay.querySelector('.ov-close'); if(close)close.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();closeOverlay();});
+    ['top','left','right','bottom'].forEach(function(k){if(dims[k])dims[k].addEventListener('click',function(e){e.preventDefault();closeOverlay();});});
+    bubble.addEventListener('click',function(e){e.stopPropagation();});
+    document.addEventListener('click',onDocClick,true);
+    window.addEventListener('scroll',function(){if(hasScrolledPastAnswerLine())closeOverlay();else{layoutOverlay();maybeOpenOverlay();}}, {passive:true});
+    window.addEventListener('resize',function(){setMobileActive(currentMobile);layoutOverlay();maybeOpenOverlay();});
+    maybeOpenOverlay(); setTimeout(maybeOpenOverlay,250); setTimeout(maybeOpenOverlay,850);
   }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  }else{ init(); }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 
 
-<style id="v84-r30-overlay-dismiss-conditions">
-/* R30: overlay dismiss rules
-   - Click anywhere to close.
-   - Close once scroll has passed the "那就是.....!!" line.
-   - Once closed, never show again in the same session. */
-body.r30-overlay-dismissed #desktopFearOverlay,
-body.r30-overlay-dismissed.desktop-fear-overlay-active #desktopFearOverlay{
-  display:none!important;
+
+<style id="v84-r35-final-polish">
+body:not(.stage-gate-unlocked) .photo-nav .photo-nav-cta,
+body.stage-gate-unlocked:not(.nav-shop-visible) .photo-nav .photo-nav-cta{
   opacity:0!important;
-  visibility:hidden!important;
   pointer-events:none!important;
+  transform:translateY(-6px)!important;
 }
-body.r30-overlay-dismissed{
-  overflow-x:hidden!important;
+body.stage-gate-unlocked.nav-shop-visible .photo-nav .photo-nav-cta{
+  opacity:1!important;
+  pointer-events:auto!important;
+  transform:translateY(0)!important;
+}
+#fear.stage-selected{padding-bottom:124px!important;}
+#idealNeeds{padding-top:110px!important;}
+#idealNeeds .ideal-needs-title{font-size:clamp(36px,4.6vw,58px)!important;}
+#idealNeeds .ideal-head-glow{position:relative;display:inline-block;z-index:1;}
+#idealNeeds .ideal-head-glow::after{content:"";position:absolute;left:-3px;right:-3px;bottom:6px;height:.58em;border-radius:999px;background:linear-gradient(90deg,rgba(255,190,92,.12) 0%,rgba(255,149,35,.58) 45%,rgba(255,204,119,.18) 100%);box-shadow:0 0 18px rgba(255,145,33,.28);z-index:-1;}
+#reviews .review-highlight{color:#D84A3A!important;font-weight:900;}
+#reviews .rtag{color:#D84A3A!important;}
+@media(max-width:768px){
+  #fear.stage-selected{padding-bottom:96px!important;}
+  #idealNeeds{padding-top:92px!important;}
+  #idealNeeds .ideal-head-glow::after{bottom:4px;height:.62em;}
 }
 </style>
 
-<script id="v84-r30-overlay-dismiss-conditions-script">
-(function(){
-  var R29_KEY = 'mirafeel_desktop_overlay_seen_v29';
-  var R30_KEY = 'mirafeel_desktop_overlay_dismissed_v30';
-  var dismissed = false;
 
-  function isDesktop(){
-    return window.matchMedia && window.matchMedia('(min-width:1025px)').matches;
-  }
+<style id="v84-r39-final-polish">
+/* R39 final polish */
+.photo-nav .photo-nav-cta{display:none!important;opacity:0!important;pointer-events:none!important;transform:translateY(-6px)!important;}
+body.stage-gate-unlocked.nav-shop-visible .photo-nav .photo-nav-cta{display:inline-flex!important;opacity:1!important;pointer-events:auto!important;transform:translateY(0)!important;}
+/* Typography rhythm */
+.kicker,.stage-kicker,#fear .kicker,#idealNeeds .kicker,#realScenes .kicker,#details .kicker,#wearing .kicker,#compare .kicker,#quality .kicker,#reviews .kicker,#faq .kicker,#size .kicker,#cta .kicker{line-height:1.2!important;letter-spacing:-.01em!important;}
+.h2,#fear .h2,#idealNeeds .h2,#realScenes .h2,#details .h2,#wearing .h2,#compare .h2,#quality .h2,#reviews .h2,#faq .h2,#size .h2,#cta .h2{line-height:1.2!important;letter-spacing:-.03em!important;}
+.sub,#fear .sub,#idealNeeds .sub,#realScenes .sub,#details .sub,#wearing .sub,#compare .sub,#quality .sub,#reviews .sub,#faq .sub,#size .sub,#cta .sub{line-height:1.65!important;letter-spacing:0!important;}
+#idealNeeds .ideal-needs-title{font-size:clamp(30px,4vw,50px)!important;line-height:1.18!important;}
+#idealNeeds .ideal-head-glow{display:inline!important;padding:0 .08em .05em!important;background-image:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 58%,rgba(255,194,94,.92) 58%,rgba(255,151,37,.95) 78%,rgba(255,226,164,.58) 92%,rgba(255,255,255,0) 92%)!important;background-repeat:no-repeat!important;box-decoration-break:clone!important;-webkit-box-decoration-break:clone!important;box-shadow:0 10px 22px rgba(255,150,37,.10)!important;}
+#idealNeeds .ideal-head-glow::after{display:none!important;content:none!important;}
+#reviews .review-highlight{color:inherit!important;font-weight:inherit!important;}
+#reviews .rtag{color:#D84A3A!important;font-weight:900!important;}
+/* Overlay speech bubble */
+#desktopFearOverlay .ov-dim{position:fixed;background:transparent!important;pointer-events:auto;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+#desktopFearOverlay .ov-highlight{position:fixed;border-radius:38px;border:2px solid rgba(255,255,255,.72);box-shadow:0 0 0 9999px rgba(17,12,8,.72),0 0 0 1px rgba(255,255,255,.18),0 22px 46px rgba(0,0,0,.12),0 0 34px rgba(255,204,99,.26);pointer-events:none;background:rgba(255,255,255,.03);}
+#desktopFearOverlay .ov-bubble{position:fixed;left:50%;transform:translateX(-50%);background:#fff!important;color:#38261b!important;border:4px solid #2B1A12!important;border-radius:40px!important;padding:24px 72px 20px 34px!important;box-shadow:8px 10px 0 #F6C8A6,0 12px 28px rgba(54,30,3,.16)!important;min-width:560px;max-width:min(78vw,760px);text-align:center;pointer-events:auto;}
+#desktopFearOverlay .ov-bubble::before{content:"";position:absolute;left:50%;bottom:-16px;transform:translateX(calc(-50% + 10px)) rotate(45deg);width:24px;height:24px;border-radius:7px;background:#F6C8A6;z-index:-1;}
+#desktopFearOverlay .ov-bubble::after{content:"";position:absolute;left:50%;bottom:-11px;transform:translateX(-50%) rotate(45deg);width:24px;height:24px;border-radius:6px;background:#fff;border-right:4px solid #2B1A12;border-bottom:4px solid #2B1A12;}
+#desktopFearOverlay .ov-bubble.ov-below::before{top:-16px;bottom:auto;transform:translateX(calc(-50% + 10px)) rotate(45deg);}
+#desktopFearOverlay .ov-bubble.ov-below::after{top:-11px;bottom:auto;border-right:none;border-bottom:none;border-left:4px solid #2B1A12;border-top:4px solid #2B1A12;}
+#desktopFearOverlay .ov-title{font-size:24px;line-height:1.28;font-weight:950;letter-spacing:-.03em;margin:0;color:#38261b!important;}
+#desktopFearOverlay .ov-sub{font-size:16px;line-height:1.5;font-weight:850;margin:10px 0 0;color:#6E5436!important;}
+#desktopFearOverlay .ov-close{position:absolute;right:14px;top:14px;width:38px;height:38px;border:none;border-radius:50%;background:#FFE9D1;color:#7E4A18;font-size:28px;line-height:1;font-weight:800;cursor:pointer;display:grid;place-items:center;box-shadow:none!important;}
+#desktopFearOverlay .ov-close:hover{background:#FFD7A8;}
+#desktopFearOverlay .ov-stage-arrow{position:fixed;z-index:20032;color:#F14E47;font-size:56px;font-weight:900;line-height:1;text-shadow:0 8px 18px rgba(60,8,8,.22);pointer-events:none;display:none;animation:ovStageArrowBounce 1s ease-in-out infinite;}
+#desktopFearOverlay.stage-step .ov-stage-arrow{display:block;}
+@keyframes ovStageArrowBounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+/* Fear next CTA and spacing */
+#fear .section-down{display:none!important;}
+#fear .fear-next-wrap{display:none;justify-content:center;align-items:center;margin:46px auto 6px;}
+#fear.stage-selected .fear-next-wrap{display:flex;}
+#fear .fear-next-cta{appearance:none;border:none;border-radius:999px;background:linear-gradient(180deg,#FFB14A 0%,#FF9229 100%);color:#fff;font-weight:950;font-family:var(--round);font-size:18px;line-height:1.2;padding:16px 28px;box-shadow:0 6px 0 #C86614,0 16px 28px rgba(255,138,43,.22);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;animation:fearNextBounce 1.55s ease-in-out infinite;}
+#fear .fear-next-cta:hover{animation:none;transform:translateY(-3px);box-shadow:0 8px 0 #C86614,0 20px 34px rgba(255,138,43,.26);}
+@keyframes fearNextBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+#fear.stage-selected{padding-bottom:168px!important;}
+#idealNeeds{padding-top:156px!important;}
+@media(max-width:768px){
+  #idealNeeds .ideal-needs-title{font-size:clamp(26px,6.4vw,36px)!important;line-height:1.18!important;}
+  #idealNeeds .ideal-head-glow{padding-bottom:.02em!important;}
+  #fear .fear-next-wrap{margin-top:30px;margin-bottom:4px;}
+  #fear .fear-next-cta{font-size:15px;padding:14px 18px;box-shadow:0 5px 0 #C86614,0 12px 22px rgba(255,138,43,.20);text-align:center;}
+  #fear.stage-selected{padding-bottom:128px!important;}
+  #idealNeeds{padding-top:130px!important;}
+  .kicker,.stage-kicker,.h2,.sub{letter-spacing:0!important;}
+}
+</style>
 
-  function isOverlayOpen(){
-    return document.body.classList.contains('desktop-fear-overlay-active');
-  }
 
-  function setSeen(){
-    dismissed = true;
-    document.body.classList.add('r30-overlay-dismissed');
-    try{
-      sessionStorage.setItem(R29_KEY, '1');
-      sessionStorage.setItem(R30_KEY, '1');
-    }catch(e){}
-  }
+<style id="v84-r40-tweaks">
+/* R40 wording + rhythm + anchor polish */
+#stageResultCopy{scroll-margin-top:112px!important;}
+#idealNeeds{scroll-margin-top:110px!important;}
+.typewriter-slogan,.ideal-typewriter,#idealNeeds .ideal-typewriter{line-height:1.34!important;}
+#idealNeeds .ideal-typewriter .type-line-1{line-height:1.4!important;}
+#idealNeeds .ideal-typewriter .type-line-2{line-height:1.14!important;margin-top:8px!important;}
+.stage-main-title,#stageResultTitle,.review-title,.keep-line{line-height:1.2!important;letter-spacing:-.02em!important;}
+.stage-main-sub,#stageResultSub,.review-card .rtext,.review-card .rsource,.review-card .rtag,.detail-open p,.detail-card p,.ideal-check-copy p,.wear-card p,.float-copy p,.faq-item .a,.size-card p,.cta .sub{line-height:1.65!important;}
+.kicker,.stage-kicker,.section .kicker,.review-head .kicker,.scene-head .kicker,.ideal-head .kicker{padding-top:0!important;padding-bottom:0!important;line-height:1.2!important;}
+.flip-title,.flip-back h3{line-height:1.28!important;}
+.flip-grumble,.flip-back p,.solution-label{line-height:1.55!important;}
+.stage-option b{line-height:1.2!important;}
+.stage-option small{line-height:1.2!important;}
+@media(max-width:768px){
+  #stageResultCopy{scroll-margin-top:88px!important;}
+  #idealNeeds{scroll-margin-top:86px!important;}
+  .typewriter-slogan,.ideal-typewriter,#idealNeeds .ideal-typewriter{line-height:1.3!important;}
+  #idealNeeds .ideal-typewriter .type-line-2{line-height:1.12!important;margin-top:6px!important;}
+}
+</style>
 
-  function closeOverlay(){
-    var overlay = document.getElementById('desktopFearOverlay');
-    setSeen();
-    document.body.classList.remove('desktop-fear-overlay-active');
-    if(overlay){
-      overlay.style.display = 'none';
-      overlay.style.opacity = '0';
-      overlay.style.visibility = 'hidden';
-      overlay.style.pointerEvents = 'none';
-    }
-  }
 
-  function getAnswerLine(){
-    return document.querySelector('#idealNeeds .type-line-2') ||
-           document.querySelector('#idealNeeds .ideal-line2') ||
-           document.querySelector('#idealNeeds .ideal-wave-line.line-2');
-  }
-
-  function hasScrolledPastAnswerLine(){
-    var line = getAnswerLine();
-    if(!line) return false;
-    var rect = line.getBoundingClientRect();
-    return rect.bottom < 0;
-  }
-
-  function applyDismissState(){
-    try{
-      if(sessionStorage.getItem(R29_KEY) === '1' || sessionStorage.getItem(R30_KEY) === '1'){
-        dismissed = true;
-      }
-    }catch(e){}
-    if(dismissed){
-      closeOverlay();
-    }
-  }
-
-  function onAnyClick(){
-    if(!isDesktop()) return;
-    if(isOverlayOpen()){
-      closeOverlay();
-    }
-  }
-
-  function onScrollOrResize(){
-    if(!isDesktop()) return;
-    if(dismissed){
-      closeOverlay();
-      return;
-    }
-    if(hasScrolledPastAnswerLine()){
-      closeOverlay();
-    }
-  }
-
-  function init(){
-    applyDismissState();
-
-    document.addEventListener('click', onAnyClick, true);
-    document.addEventListener('touchstart', onAnyClick, {capture:true, passive:true});
-    window.addEventListener('scroll', onScrollOrResize, {passive:true});
-    window.addEventListener('resize', onScrollOrResize);
-
-    // Guard against the older R29 overlay script re-opening it after dismissal.
-    setInterval(function(){
-      if(dismissed || hasScrolledPastAnswerLine()){
-        closeOverlay();
-      }
-    }, 350);
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  }else{
-    init();
-  }
-})();
-</script>
+<style id="v84-r42-final-fixes">
+/* R42 final fixes */
+/* 1) ideal slogan spacing */
+#idealNeeds .ideal-check-list{margin-bottom:0!important;}
+#idealNeeds .ideal-slogan,
+#idealNeeds .typewriter-slogan{margin-top:34px!important; padding-top:4px!important;}
+#idealNeeds .ideal-typewriter{line-height:1.24!important;}
+#idealNeeds .ideal-typewriter .type-line-1{line-height:1.2!important;}
+#idealNeeds .ideal-typewriter .type-line-2{line-height:1.08!important; margin-top:2px!important;}
+/* 2) overlay speech bubble fix */
+#desktopFearOverlay .ov-bubble{background:#fff!important;color:#38261b!important;border:4px solid #2B1A12!important;border-radius:44px!important;padding:24px 64px 18px 28px!important;box-shadow:8px 10px 0 #F6C8A6,0 12px 28px rgba(54,30,3,.16)!important;overflow:visible!important;}
+#desktopFearOverlay .ov-bubble::before{content:""!important;position:absolute!important;left:52px!important;bottom:-13px!important;top:auto!important;width:22px!important;height:22px!important;border-radius:6px!important;background:#F6C8A6!important;transform:rotate(45deg)!important;z-index:-1!important;}
+#desktopFearOverlay .ov-bubble::after{content:""!important;position:absolute!important;left:48px!important;bottom:-10px!important;top:auto!important;width:20px!important;height:20px!important;border-radius:5px!important;background:#fff!important;border-right:4px solid #2B1A12!important;border-bottom:4px solid #2B1A12!important;border-left:none!important;border-top:none!important;transform:rotate(45deg)!important;}
+#desktopFearOverlay .ov-bubble.ov-below::before{left:52px!important;top:-13px!important;bottom:auto!important;}
+#desktopFearOverlay .ov-bubble.ov-below::after{left:48px!important;top:-10px!important;bottom:auto!important;border-right:none!important;border-bottom:none!important;border-left:4px solid #2B1A12!important;border-top:4px solid #2B1A12!important;}
+#desktopFearOverlay .ov-title{font-size:23px!important;line-height:1.22!important;}
+#desktopFearOverlay .ov-sub{font-size:15px!important;line-height:1.35!important;margin-top:8px!important;}
+/* 3) white kicker size */
+.kicker,#realScenes .kicker,#quality .kicker,#reviews .kicker,#fear .kicker,#idealNeeds .kicker,#details .kicker,#wearing .kicker,#compare .kicker,#faq .kicker,#size .kicker,#cta .kicker{font-size:15px!important;padding:8px 18px!important;border-width:1.5px!important;border-radius:999px!important;line-height:1.2!important;}
+/* 4) video area wider + one line */
+#realScenes .scene-head{align-items:flex-start!important;gap:28px!important;}
+#realScenes .scene-video-shell{width:min(520px,100%)!important;max-width:520px!important;}
+#realScenes .scene-video-title{font-size:19px!important;white-space:nowrap!important;line-height:1.2!important;}
+#realScenes .scene-video-frame iframe{aspect-ratio:16/8.8!important;}
+/* 5) quality section lower */
+#quality.section{padding-top:112px!important;padding-bottom:98px!important;}
+#quality .inner{padding-top:28px!important;}
+/* 6) unify down arrow position */
+@media(min-width:769px){
+  .section{position:relative!important;}
+  .section > .section-down, .section .inner > .section-down{position:absolute!important;left:50%!important;right:auto!important;top:auto!important;bottom:30px!important;transform:translateX(-50%)!important;margin:0!important;z-index:25!important;}
+}
+@media(max-width:768px){
+  #desktopFearOverlay .ov-bubble{max-width:88vw!important;border-radius:34px!important;padding:18px 44px 14px 20px!important;}
+  #desktopFearOverlay .ov-bubble::before{left:34px!important;bottom:-11px!important;width:18px!important;height:18px!important;}
+  #desktopFearOverlay .ov-bubble::after{left:30px!important;bottom:-8px!important;width:16px!important;height:16px!important;}
+  #desktopFearOverlay .ov-bubble.ov-below::before{left:34px!important;top:-11px!important;}
+  #desktopFearOverlay .ov-bubble.ov-below::after{left:30px!important;top:-8px!important;}
+  .kicker,#realScenes .kicker,#quality .kicker,#reviews .kicker,#fear .kicker,#idealNeeds .kicker,#details .kicker,#wearing .kicker,#compare .kicker,#faq .kicker,#size .kicker,#cta .kicker{font-size:14px!important;padding:7px 15px!important;}
+  #realScenes .scene-video-shell{width:100%!important;max-width:100%!important;}
+  #realScenes .scene-video-title{font-size:15px!important;white-space:nowrap!important;}
+  #quality.section{padding-top:96px!important;padding-bottom:86px!important;}
+}
+</style>
 
 </body>
 </html>
@@ -10470,7 +10807,7 @@ body.r30-overlay-dismissed{
     var logo=box.querySelector('.ideal-slogan-logo');
     if(!tw || !logo) return;
     var text1=box.getAttribute('data-type-line1')||'如果你還在找那片你與寶寶理想中的完美尿布，';
-    var text2=box.getAttribute('data-type-line2')||'那就是...';
+    var text2=box.getAttribute('data-type-line2')||'我們想介紹給你……';
     tw.innerHTML='<span class="type-line type-line-1"></span><span class="type-line type-line-2"></span>';
     var l1=tw.querySelector('.type-line-1');
     var l2=tw.querySelector('.type-line-2');
