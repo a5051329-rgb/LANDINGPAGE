@@ -11488,5 +11488,637 @@ body.stage-gate-unlocked.nav-shop-visible .photo-nav .photo-nav-cta{display:inli
   #details .detail-card{flex-basis:84%!important;}
 }
 </style>
+
+
+<style id="v84-r49-mobile-pain-carousel">
+/* R49: mobile pain section — 半一屏式、橫滑情境卡，避免版面拉太長。 */
+.pain-carousel-hint,.pain-carousel-dots{display:none;}
+@media (max-width:768px){
+  #fear.stage-selected{
+    min-height:100svh!important;
+    padding:34px 0 42px!important;
+    overflow:hidden!important;
+    background:linear-gradient(180deg,#FFF8E7 0%,#F7FBEC 48%,#EAFBF7 100%)!important;
+  }
+  #fear.stage-selected .inner{
+    width:100%!important;
+    max-width:430px!important;
+    min-height:calc(100svh - 76px)!important;
+    margin:0 auto!important;
+    padding:0 14px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+  }
+  #fear.stage-selected .pain-stage-head{
+    margin:0 auto!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+  #fear.stage-selected .stage-result-copy{
+    padding:0 8px!important;
+    margin:0 auto 8px!important;
+    overflow:visible!important;
+  }
+  #fear.stage-selected .stage-result-copy .kicker{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0 auto 12px!important;
+    padding:8px 14px!important;
+    border-radius:999px!important;
+    background:#fff!important;
+    color:#C86614!important;
+    box-shadow:0 10px 26px rgba(98,72,31,.09)!important;
+    font-size:12.5px!important;
+    line-height:1.1!important;
+    font-weight:950!important;
+  }
+  #fear.stage-selected #stageResultTitle{
+    max-width:340px!important;
+    margin:0 auto 10px!important;
+    color:#34271D!important;
+    font-size:clamp(25px,7.2vw,30px)!important;
+    line-height:1.24!important;
+    letter-spacing:-.04em!important;
+    text-wrap:balance;
+  }
+  #fear.stage-selected #stageResultTitle strong{
+    color:#34271D!important;
+    font-weight:950!important;
+  }
+  #fear.stage-selected #stageResultSub{
+    display:block!important;
+    width:100%!important;
+    max-width:330px!important;
+    margin:0 auto 10px!important;
+    padding:0 4px!important;
+    color:#6E5436!important;
+    font-size:13.5px!important;
+    line-height:1.65!important;
+    font-weight:750!important;
+    -webkit-line-clamp:unset!important;
+    overflow:visible!important;
+    word-break:normal!important;
+    overflow-wrap:break-word!important;
+  }
+  #fear .stage-reselect-btn{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin:8px auto 0!important;
+    min-height:36px!important;
+    padding:9px 14px!important;
+    font-size:12.5px!important;
+    line-height:1!important;
+    border:1px solid rgba(255,138,43,.24)!important;
+    box-shadow:0 8px 20px rgba(98,72,31,.08)!important;
+  }
+  #fear.stage-selected .pain-carousel-hint{
+    display:block!important;
+    margin:12px auto 8px!important;
+    text-align:center!important;
+    color:#B56513!important;
+    font-size:12.5px!important;
+    line-height:1.45!important;
+    font-weight:950!important;
+    letter-spacing:.01em!important;
+  }
+  #fear.stage-selected .pain-mobile-nav{
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:8px!important;
+    width:100%!important;
+    max-width:160px!important;
+    height:auto!important;
+    margin:4px auto 8px!important;
+    order:0!important;
+    pointer-events:none!important;
+  }
+  #fear.stage-selected .pain-mobile-nav button{
+    display:none!important;
+  }
+  #fear.stage-selected .pain-mobile-count{
+    min-width:auto!important;
+    padding:5px 11px!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.78)!important;
+    color:#B56513!important;
+    font-size:12px!important;
+    line-height:1!important;
+    font-weight:950!important;
+    box-shadow:0 7px 18px rgba(98,72,31,.07)!important;
+  }
+  body #fear.stage-selected .flip-grid,
+  #fear.stage-selected .flip-grid{
+    position:relative!important;
+    display:flex!important;
+    grid-template-columns:none!important;
+    width:calc(100% + 28px)!important;
+    max-width:none!important;
+    min-height:0!important;
+    gap:14px!important;
+    margin:6px -14px 0!important;
+    padding:0 14px 14px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-inline:14px!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+    z-index:8!important;
+  }
+  #fear.stage-selected .flip-grid::-webkit-scrollbar{height:6px!important;}
+  #fear.stage-selected .flip-grid::-webkit-scrollbar-thumb{background:#FFD98E!important;border-radius:999px!important;}
+  body #fear.stage-selected .flip-card,
+  body #fear.stage-selected .flip-card.mobile-active,
+  #fear.stage-selected .flip-card,
+  #fear.stage-selected .flip-card.mobile-active{
+    display:block!important;
+    flex:0 0 min(86%,330px)!important;
+    width:auto!important;
+    max-width:330px!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    perspective:none!important;
+    scroll-snap-align:center!important;
+    scroll-snap-stop:always!important;
+    animation:none!important;
+    touch-action:pan-x pan-y!important;
+  }
+  body #fear.stage-selected .flip-inner,
+  #fear.stage-selected .flip-inner{
+    height:auto!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  body #fear.stage-selected .flip-front,
+  body #fear.stage-selected .flip-back,
+  #fear.stage-selected .flip-front,
+  #fear.stage-selected .flip-back{
+    position:relative!important;
+    inset:auto!important;
+    transform:none!important;
+    backface-visibility:visible!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    align-items:center!important;
+    min-height:214px!important;
+    border-radius:28px!important;
+    padding:22px 18px!important;
+    overflow:hidden!important;
+    text-align:center!important;
+    background:linear-gradient(135deg,rgba(255,255,255,.98) 0%,rgba(255,252,242,.96) 58%,rgba(235,255,251,.96) 100%)!important;
+    border:1px solid rgba(255,255,255,.92)!important;
+    box-shadow:0 16px 42px rgba(98,72,31,.12)!important;
+  }
+  body #fear.stage-selected .flip-back,
+  #fear.stage-selected .flip-back{
+    background:linear-gradient(135deg,#FFF8E6 0%,#FFFDF7 55%,#EAFBF7 100%)!important;
+  }
+  body #fear.stage-selected .flip-card:not(.flipped) .flip-back,
+  #fear.stage-selected .flip-card:not(.flipped) .flip-back{display:none!important;}
+  body #fear.stage-selected .flip-card.flipped .flip-front,
+  #fear.stage-selected .flip-card.flipped .flip-front{display:none!important;}
+  #fear.stage-selected .flip-front::before,
+  #fear.stage-selected .flip-back::before{
+    content:''!important;
+    display:block!important;
+    position:absolute!important;
+    right:-42px!important;
+    top:-42px!important;
+    width:118px!important;
+    height:118px!important;
+    border-radius:50%!important;
+    background:var(--blob)!important;
+    opacity:.12!important;
+    z-index:0!important;
+  }
+  #fear.stage-selected .flip-front > *,
+  #fear.stage-selected .flip-back > *{position:relative!important;z-index:1!important;}
+  body #fear.stage-selected .flip-emoji,
+  #fear.stage-selected .flip-emoji{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    width:auto!important;
+    height:auto!important;
+    display:block!important;
+    margin:0 auto 10px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:inherit!important;
+    font-size:25px!important;
+    line-height:1!important;
+    letter-spacing:-.1em!important;
+    overflow:visible!important;
+  }
+  body #fear.stage-selected .flip-title,
+  #fear.stage-selected .flip-title{
+    max-width:292px!important;
+    margin:0 auto 9px!important;
+    color:#3A2C21!important;
+    font-size:20px!important;
+    line-height:1.28!important;
+    letter-spacing:-.04em!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  body #fear.stage-selected .flip-grumble,
+  #fear.stage-selected .flip-grumble{
+    max-width:292px!important;
+    margin:0 auto 16px!important;
+    color:#6E5436!important;
+    font-size:13.8px!important;
+    line-height:1.55!important;
+    text-align:center!important;
+    -webkit-line-clamp:unset!important;
+    overflow:visible!important;
+  }
+  body #fear.stage-selected .solution-label,
+  #fear.stage-selected .solution-label{
+    display:inline-flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    margin:0 auto 8px!important;
+    padding:6px 10px!important;
+    border-radius:999px!important;
+    background:#EAFBF7!important;
+    color:#13988B!important;
+    font-size:12px!important;
+    line-height:1!important;
+    font-weight:950!important;
+  }
+  body #fear.stage-selected .flip-back h3,
+  #fear.stage-selected .flip-back h3{
+    max-width:292px!important;
+    margin:0 auto 8px!important;
+    color:#C86614!important;
+    font-size:19px!important;
+    line-height:1.26!important;
+    text-align:center!important;
+  }
+  body #fear.stage-selected .flip-back p,
+  #fear.stage-selected .flip-back p{
+    max-width:296px!important;
+    margin:0 auto 14px!important;
+    color:#6E5436!important;
+    font-size:13.3px!important;
+    line-height:1.58!important;
+    text-align:center!important;
+    display:block!important;
+    -webkit-line-clamp:unset!important;
+    overflow:visible!important;
+  }
+  body #fear.stage-selected .solution-img,
+  #fear.stage-selected .solution-img{display:none!important;}
+  body #fear.stage-selected .find-btn,
+  #fear.stage-selected .find-btn{
+    display:inline-flex!important;
+    align-self:center!important;
+    justify-content:center!important;
+    align-items:center!important;
+    min-height:42px!important;
+    margin:0 auto!important;
+    padding:10px 20px!important;
+    border-radius:999px!important;
+    color:#fff!important;
+    background:linear-gradient(180deg,#FF9C3C 0%,#FF7F22 100%)!important;
+    box-shadow:0 5px 0 #C86614,0 14px 26px rgba(255,128,35,.20)!important;
+    font-size:13.5px!important;
+    line-height:1!important;
+    font-weight:950!important;
+  }
+  #fear.stage-selected .pain-carousel-dots{
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:7px!important;
+    margin:4px auto 0!important;
+  }
+  #fear.stage-selected .pain-carousel-dot{
+    width:7px!important;
+    height:7px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:rgba(181,101,19,.24)!important;
+    transition:width .2s ease,background .2s ease!important;
+  }
+  #fear.stage-selected .pain-carousel-dot.active{
+    width:20px!important;
+    background:#FF8A2B!important;
+  }
+  #fear.stage-selected .fear-next-wrap{
+    margin-top:20px!important;
+    margin-bottom:0!important;
+  }
+  #fear.stage-selected .fear-next-cta{
+    font-size:14px!important;
+    padding:13px 18px!important;
+    box-shadow:0 5px 0 #C86614,0 12px 22px rgba(255,138,43,.18)!important;
+  }
+}
+@media (max-width:390px){
+  #fear.stage-selected #stageResultTitle{font-size:clamp(23px,7vw,27px)!important;}
+  body #fear.stage-selected .flip-card,
+  body #fear.stage-selected .flip-card.mobile-active,
+  #fear.stage-selected .flip-card,
+  #fear.stage-selected .flip-card.mobile-active{flex-basis:88%!important;}
+  body #fear.stage-selected .flip-front,
+  body #fear.stage-selected .flip-back,
+  #fear.stage-selected .flip-front,
+  #fear.stage-selected .flip-back{min-height:218px!important;padding:20px 16px!important;}
+  #fear.stage-selected .flip-title{font-size:18.5px!important;}
+  #fear.stage-selected .flip-grumble,
+  #fear.stage-selected .flip-back p{font-size:13px!important;}
+}
+</style>
+<script id="v84-r49-mobile-pain-carousel-script">
+(function(){
+  var stageCopy={
+    newborn:{kicker:'0–3M 新生兒期',title:'剛開始包尿布，<br><strong>爸媽最在意安心貼合。</strong>',sub:'新生兒肌膚柔嫩、換尿布次數多，爸媽更需要好攤、好對位，也要減少勒痕與悶熱。'},
+    moving:{kicker:'4–6M 開始好動期',title:'開始好動後，<br><strong>換尿布也像小挑戰。</strong>',sub:'4–6M 的寶寶開始扭動、踢腳、翻來翻去，爸媽更在意服貼，也更需要順手更換。'},
+    crawling:{kicker:'7–12M 翻身爬行期',title:'翻身爬行後，<br><strong>尿布也要跟上活動力。</strong>',sub:'寶寶開始爬來爬去，尺寸、貼合與防漏會更有感，爸媽也更需要快速又彈性的更換方式。'},
+    walking:{kicker:'1Y+ 學站學走期',title:'站起來想探索，<br><strong>更需要快穿又能微調。</strong>',sub:'寶寶更常站著、走著、跑著探索，爸媽會更在意外出穿脫、活動防漏與腰腿貼合。'}
+  };
+  function isMobile(){return window.matchMedia&&window.matchMedia('(max-width:768px)').matches;}
+  function getFear(){return document.getElementById('fear');}
+  function getGrid(){return document.getElementById('flipGrid');}
+  function getStage(){
+    var active=document.querySelector('#babyStagePicker .stage-option.active');
+    return active&&active.getAttribute('data-stage');
+  }
+  function ensureHint(fear,grid){
+    if(!fear||!grid)return null;
+    var hint=fear.querySelector('.pain-carousel-hint');
+    if(!hint){
+      hint=document.createElement('div');
+      hint.className='pain-carousel-hint';
+      hint.textContent='← 左右滑動看常見煩惱，點卡片看解方 →';
+      grid.parentNode.insertBefore(hint,grid);
+    }
+    return hint;
+  }
+  function ensureDots(fear,grid,cards){
+    var dots=fear.querySelector('.pain-carousel-dots');
+    if(!dots){
+      dots=document.createElement('div');
+      dots.className='pain-carousel-dots';
+      grid.parentNode.insertBefore(dots,grid.nextSibling);
+    }
+    if(dots.children.length!==cards.length){
+      dots.innerHTML='';
+      cards.forEach(function(card,idx){
+        var dot=document.createElement('button');
+        dot.type='button';
+        dot.className='pain-carousel-dot';
+        dot.setAttribute('aria-label','切換到第 '+(idx+1)+' 個煩惱');
+        dot.addEventListener('click',function(e){
+          e.preventDefault();
+          card.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+          setTimeout(updateCarouselState,180);
+        });
+        dots.appendChild(dot);
+      });
+    }
+    return dots;
+  }
+  var raf=0;
+  function updateCarouselState(){
+    var fear=getFear(),grid=getGrid();
+    if(!fear||!grid||!isMobile())return;
+    var cards=Array.prototype.slice.call(grid.querySelectorAll('.flip-card'));
+    if(!cards.length)return;
+    var gr=grid.getBoundingClientRect();
+    var center=gr.left+gr.width/2;
+    var active=0,dist=Infinity;
+    cards.forEach(function(card,idx){
+      var r=card.getBoundingClientRect();
+      var d=Math.abs((r.left+r.right)/2-center);
+      if(d<dist){dist=d;active=idx;}
+    });
+    cards.forEach(function(card,idx){card.classList.toggle('mobile-current',idx===active);});
+    var nav=fear.querySelector('.pain-mobile-nav');
+    var count=nav&&nav.querySelector('.pain-mobile-count');
+    if(count)count.textContent=(active+1)+' / '+cards.length;
+    var dots=fear.querySelectorAll('.pain-carousel-dot');
+    dots.forEach(function(dot,idx){dot.classList.toggle('active',idx===active);});
+  }
+  function scheduleUpdate(){
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(updateCarouselState);
+  }
+  function applyStageCopy(){
+    var fear=getFear();
+    if(!fear||!fear.classList.contains('stage-selected'))return;
+    var stage=getStage();
+    var copy=stage&&stageCopy[stage];
+    if(!copy)return;
+    var result=fear.querySelector('#stageResultCopy');
+    var kicker=result&&result.querySelector('.kicker');
+    var title=fear.querySelector('#stageResultTitle');
+    var sub=fear.querySelector('#stageResultSub');
+    if(kicker)kicker.textContent=copy.kicker;
+    if(title)title.innerHTML=copy.title;
+    if(sub)sub.textContent=copy.sub;
+  }
+  function patchCards(){
+    var grid=getGrid();
+    if(!grid)return;
+    grid.querySelectorAll('.flip-card').forEach(function(card){
+      var frontBtn=card.querySelector('.flip-front .find-btn');
+      var backBtn=card.querySelector('.flip-back .find-btn');
+      if(frontBtn)frontBtn.textContent='點我看解方';
+      if(backBtn)backBtn.textContent='再看一次';
+    });
+  }
+  function bindSwipeGuard(grid){
+    if(!grid||grid.dataset.r49SwipeGuard==='1')return;
+    grid.dataset.r49SwipeGuard='1';
+    var sx=0,sy=0,dragging=false,recentDrag=false;
+    grid.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY;dragging=false;},true);
+    grid.addEventListener('pointermove',function(e){
+      var dx=Math.abs(e.clientX-sx),dy=Math.abs(e.clientY-sy);
+      if(dx>10&&dx>dy){dragging=true;recentDrag=true;}
+    },true);
+    grid.addEventListener('pointerup',function(){setTimeout(function(){recentDrag=false;dragging=false;},90);},true);
+    grid.addEventListener('click',function(e){
+      if(dragging||recentDrag){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    },true);
+    grid.addEventListener('scroll',scheduleUpdate,{passive:true});
+  }
+  function enhancePainCarousel(){
+    var fear=getFear(),grid=getGrid();
+    if(!fear||!grid)return;
+    var cards=Array.prototype.slice.call(grid.querySelectorAll('.flip-card'));
+    applyStageCopy();
+    ensureHint(fear,grid);
+    if(cards.length){
+      ensureDots(fear,grid,cards);
+      patchCards();
+      bindSwipeGuard(grid);
+      setTimeout(updateCarouselState,30);
+      setTimeout(updateCarouselState,180);
+    }
+  }
+  function onReady(){
+    enhancePainCarousel();
+    var fear=getFear(),grid=getGrid();
+    if(grid){
+      var mo=new MutationObserver(function(){setTimeout(enhancePainCarousel,0);setTimeout(enhancePainCarousel,120);});
+      mo.observe(grid,{childList:true,subtree:true});
+    }
+    if(fear){
+      var fo=new MutationObserver(function(){setTimeout(enhancePainCarousel,0);});
+      fo.observe(fear,{attributes:true,attributeFilter:['class']});
+    }
+    document.addEventListener('click',function(e){
+      if(e.target&&e.target.closest&&e.target.closest('#babyStagePicker .stage-option,#stageResetBtn')){
+        setTimeout(enhancePainCarousel,80);
+        setTimeout(function(){
+          var grid=getGrid();
+          if(isMobile()&&grid)grid.scrollTo({left:0,behavior:'auto'});
+          enhancePainCarousel();
+        },220);
+      }
+    },true);
+    window.addEventListener('resize',function(){setTimeout(enhancePainCarousel,80);}, {passive:true});
+    window.addEventListener('load',function(){setTimeout(enhancePainCarousel,180);});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',onReady);else onReady();
+})();
+</script>
+
+
+
+<style id="v84-r50-mobile-pain-focus-cleanup">
+/* R50: mobile pain section — reduce competing instructions and reveal next CTA only after a solution is viewed. */
+@media (max-width:768px){
+  #fear.stage-selected .inner{position:relative!important;}
+
+  /* Keep the carousel self-explanatory through card peeking + dots, not another instruction line. */
+  #fear.stage-selected .pain-carousel-hint,
+  #fear.stage-selected .pain-mobile-nav{
+    display:none!important;
+  }
+
+  /* Move reselect out of the main reading flow so the primary action is the worry card. */
+  #fear.stage-selected .stage-reselect-btn{
+    position:absolute!important;
+    top:2px!important;
+    right:14px!important;
+    z-index:24!important;
+    min-height:30px!important;
+    margin:0!important;
+    padding:6px 10px!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.62)!important;
+    color:#B56513!important;
+    border:1px solid rgba(255,138,43,.18)!important;
+    box-shadow:none!important;
+    font-size:11.5px!important;
+    line-height:1!important;
+    font-weight:950!important;
+    opacity:.88!important;
+  }
+
+  /* Make horizontal swipe visible without relying on text instructions. */
+  body #fear.stage-selected .flip-grid,
+  #fear.stage-selected .flip-grid{
+    gap:12px!important;
+    margin-top:10px!important;
+    padding-left:14px!important;
+    padding-right:36px!important;
+    scroll-padding-inline:14px!important;
+  }
+  body #fear.stage-selected .flip-card,
+  body #fear.stage-selected .flip-card.mobile-active,
+  #fear.stage-selected .flip-card,
+  #fear.stage-selected .flip-card.mobile-active{
+    flex:0 0 min(80%,318px)!important;
+    max-width:318px!important;
+    scroll-snap-align:start!important;
+  }
+
+  /* Before a parent opens any solution, do not show the next-step CTA. */
+  #fear.stage-selected:not(.solution-seen) .fear-next-wrap{
+    display:none!important;
+  }
+  #fear.stage-selected.solution-seen .fear-next-wrap{
+    display:flex!important;
+    margin-top:16px!important;
+  }
+
+  #fear.stage-selected .pain-carousel-dots{
+    margin-top:8px!important;
+  }
+}
+@media (max-width:390px){
+  body #fear.stage-selected .flip-card,
+  body #fear.stage-selected .flip-card.mobile-active,
+  #fear.stage-selected .flip-card,
+  #fear.stage-selected .flip-card.mobile-active{
+    flex-basis:80%!important;
+    max-width:306px!important;
+  }
+}
+</style>
+<script id="v84-r50-mobile-pain-focus-cleanup-script">
+(function(){
+  function isMobile(){return window.matchMedia&&window.matchMedia('(max-width:768px)').matches;}
+  function getFear(){return document.getElementById('fear');}
+  function tuneResetButton(){
+    var btn=document.getElementById('stageResetBtn');
+    if(!btn)return;
+    if(isMobile()){
+      btn.textContent='換階段';
+      btn.setAttribute('aria-label','重新選擇寶寶階段');
+    }else{
+      btn.textContent='← 重新選擇寶寶階段';
+      btn.removeAttribute('aria-label');
+    }
+  }
+  function hideNextUntilSolution(){
+    var fear=getFear();
+    if(!fear)return;
+    if(!fear.classList.contains('stage-selected'))fear.classList.remove('solution-seen');
+  }
+  function run(){
+    tuneResetButton();
+    hideNextUntilSolution();
+  }
+  document.addEventListener('click',function(e){
+    var fear=getFear();
+    if(!fear)return;
+    if(e.target.closest&&e.target.closest('#babyStagePicker .stage-option,#stageResetBtn')){
+      fear.classList.remove('solution-seen');
+      setTimeout(run,80);
+      setTimeout(run,220);
+      return;
+    }
+    var card=e.target.closest&&e.target.closest('#fear .flip-card');
+    if(card&&isMobile()){
+      /* The card's own click handler runs before this bubble listener; if it is now flipped, a solution has been viewed. */
+      setTimeout(function(){
+        if(card.classList.contains('flipped'))fear.classList.add('solution-seen');
+      },0);
+    }
+  },false);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+  window.addEventListener('resize',function(){setTimeout(run,80);},{passive:true});
+  window.addEventListener('load',function(){setTimeout(run,180);});
+})();
+</script>
+
 </body>
 </html>
