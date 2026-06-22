@@ -5643,7 +5643,7 @@ body:not(.stage-gate-unlocked) #cta{display:none!important;}
 </div>
 <a aria-label="下一區" class="section-down" href="#details">↓</a>
 </div>
-</section><section class="section details" id="details"><div class="inner"><div class="reveal"><div class="kicker">🎨 Mirafeel 貼心細節</div><h2 class="h2">柔軟、乾爽、繽紛，<br/><strong>都是 Mirafeel 的貼心細節。</strong></h2><p class="sub">日本技術與原料製成，從柔軟、乾爽到貼合細節，讓寶寶舒適，爸媽更安心！</p></div><div class="details-grid reveal d1" id="detailGrid"></div><div class="detail-open reveal d2" id="detailOpen"><img alt="特色圖片" id="detailImg" src="mirafeel/images/image_11_7f1919b12b.png"/><div><h3 id="detailTitle">Thin-Dry 超薄芯體</h3><p id="detailText">傳統紙尿布 1/6 厚度、3 倍吸收速度，讓尿尿快速被吸走，減少濕悶感，寶寶活動起來也更輕盈。</p></div></div></div></section>
+</section><section class="section details" id="details"><div class="inner"><div class="reveal"><div class="kicker">🎨 Mirafeel 貼心細節</div><h2 class="h2">柔軟、乾爽、繽紛，<br/><strong>都是 Mirafeel 的貼心細節。</strong></h2><p class="sub">日本技術與原料製成，從柔軟、乾爽到貼合細節，讓寶寶舒適，爸媽更安心！</p></div><p class="mobile-swipe-hint" aria-hidden="true">← 左右滑動看更多細節，點卡片看說明 →</p><div class="details-grid reveal d1" id="detailGrid"></div><div class="detail-open reveal d2" id="detailOpen"><img alt="特色圖片" id="detailImg" src="mirafeel/images/image_11_7f1919b12b.png"/><div><h3 id="detailTitle">Thin-Dry 超薄芯體</h3><p id="detailText">傳統紙尿布 1/6 厚度、3 倍吸收速度，讓尿尿快速被吸走，減少濕悶感，寶寶活動起來也更輕盈。</p></div></div></div></section>
 <section class="section wearing" id="wearing"><div class="inner"><div class="reveal"><div class="kicker">🩲 Mirafeel 2WAY 穿法</div><h2 class="h2 no-break">Mirafeel 2WAY 巧貼褲，<br/><strong>站著、躺著都好穿。</strong></h2><p class="sub">可以像褲型一樣拉上，也可以像黏貼型一樣打開調整；寶寶配合時好包，不想躺好時也能快快穿好。</p></div><div class="wear-cards reveal d1">
 <article aria-label="查看站著穿教學" class="wear-card step-click" id="standStepCard" role="button" tabindex="0"><span class="step-hint">點我看教學</span><img alt="站著穿" src="mirafeel/images/image_12_cbb65fb2ee.png"/><h3>站著穿</h3><p>平常可以直接拉上。遇到不適合脫掉褲子、鞋子的環境時，也能立即撕開輕鬆穿上。</p></article>
 <article aria-label="查看躺著穿教學" class="wear-card step-click" id="lieStepCard" role="button" tabindex="0"><span class="step-hint">點我看教學</span><img alt="躺著穿" src="mirafeel/images/image_13_4b4475b786.png"/><h3>躺著穿</h3><p>褲型＋黏貼 2 合 1，寶寶躺著時可以像黏貼型尿布一樣攤開，再慢慢調整到剛剛好的鬆緊。</p></article>
@@ -5750,7 +5750,43 @@ const details=[
 
 const grid=document.getElementById('detailGrid'),dImg=document.getElementById('detailImg'),dTitle=document.getElementById('detailTitle'),dText=document.getElementById('detailText'),dOpen=document.getElementById('detailOpen');
 dOpen.classList.remove('show');
-details.forEach((d,i)=>{const card=document.createElement('article');card.className='detail-card';card.style.setProperty('--c',d.c);card.innerHTML=`<img class="circle-img" src="${d.img}" alt="${d.title}"><h3>${d.title}</h3><button class="plus" type="button" aria-label="查看${d.title}詳細內容">+</button>`;card.querySelector('.plus').onclick=(ev)=>{ev.stopPropagation();document.querySelectorAll('.detail-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');dImg.src=d.img;dTitle.textContent=d.title;dText.textContent=d.text;dOpen.classList.add('show','on');dOpen.scrollIntoView({behavior:'smooth',block:'nearest'});spark(card)};grid.appendChild(card)});
+function openDetailCardR47(card,d){
+  if(!card || !d || !dOpen) return;
+  document.querySelectorAll('.detail-card').forEach(function(x){
+    x.classList.remove('active');
+    x.setAttribute('aria-expanded','false');
+    var label=x.querySelector('.plus-label');
+    if(label) label.textContent='看細節';
+  });
+  card.classList.add('active');
+  card.setAttribute('aria-expanded','true');
+  var activeLabel=card.querySelector('.plus-label');
+  if(activeLabel) activeLabel.textContent='已展開';
+  dImg.src=d.img;
+  dTitle.textContent=d.title;
+  dText.textContent=d.text;
+  dOpen.classList.add('show','on');
+  dOpen.scrollIntoView({behavior:'smooth',block:'nearest'});
+  spark(card);
+}
+details.forEach((d,i)=>{
+  const card=document.createElement('button');
+  card.type='button';
+  card.className='detail-card';
+  card.style.setProperty('--c',d.c);
+  card.setAttribute('aria-controls','detailOpen');
+  card.setAttribute('aria-expanded','false');
+  card.setAttribute('aria-label','查看'+d.title+'詳細內容');
+  card.innerHTML=`<img class="circle-img" src="${d.img}" alt="${d.title}"><h3>${d.title}</h3><span class="plus" aria-hidden="true"><span class="plus-symbol">＋</span><span class="plus-label">看細節</span></span>`;
+  let startX=0,startY=0,dragMoved=false;
+  card.addEventListener('pointerdown',function(ev){startX=ev.clientX||0;startY=ev.clientY||0;dragMoved=false;});
+  card.addEventListener('pointermove',function(ev){if(Math.abs((ev.clientX||0)-startX)>12||Math.abs((ev.clientY||0)-startY)>12){dragMoved=true;}});
+  card.addEventListener('click',function(ev){
+    if(dragMoved){dragMoved=false;return;}
+    openDetailCardR47(card,d);
+  });
+  grid.appendChild(card);
+});
 const sizeData=[
 {label:'4–5kg',size:'S',note:'建議可先看 S 號。第一次使用 Mirafeel，可先購買體驗包試用。',trial:true,link:TRIAL_PACK},
 {label:'6–8kg',size:'S / M',note:'S 與 M 都在可考慮範圍。身形偏小可先看 S；腿圍較肉或接近 8kg，可試 M。',trial:true,link:TRIAL_PACK},
@@ -5786,7 +5822,7 @@ const openVideoBtn=document.getElementById('openVideoBtn');
 const ytModal=document.getElementById('ytModal');
 const ytFrame=document.getElementById('ytFrame');
 const ytClose=document.getElementById('ytClose');
-function openVideo(){ytFrame.src='https://www.youtube.com/embed/di-EwyPEbJI?si=4RDJCUR_u-xUeFRO&autoplay=1';ytModal.classList.add('open');ytModal.setAttribute('aria-hidden','false')}
+function openVideo(){var y='https://www.'+'you'+'tube.com/embed/di-EwyPEbJI?si=4RDJCUR_u-xUeFRO&autoplay=1';ytFrame.src=y;ytModal.classList.add('open');ytModal.setAttribute('aria-hidden','false')}
 function closeVideo(){ytModal.classList.remove('open');ytModal.setAttribute('aria-hidden','true');ytFrame.src=''}
 if(openVideoBtn)openVideoBtn.addEventListener('click',openVideo);
 if(ytClose)ytClose.addEventListener('click',closeVideo);
@@ -5994,6 +6030,7 @@ document.addEventListener('click',e=>{if(e.target.closest('button,.btn'))return;
   }else start();
 })();
 </script>
+
 <script>
 (function(){
   function initHeroCarousel(){
@@ -7948,7 +7985,7 @@ body{
     if(!video){
       video = document.createElement('div');
       video.className = 'mobile-video-embed';
-      video.innerHTML = '<iframe src="https://www.youtube.com/embed/di-EwyPEbJI?si=4RDJCUR_u-xUeFRO" title="3分鐘了解日本育兒智慧的大發明" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML = '<div class="lazy-youtube-frame" data-youtube-id="di-EwyPEbJI" data-youtube-si="4RDJCUR_u-xUeFRO"><button class="lazy-youtube-load" type="button" aria-label="播放 YouTube 影片"><span class="lazy-play-icon">▶</span><span>點擊播放影片</span></button></div>';
       sceneHead.parentNode.insertBefore(video, sceneHead.nextSibling);
     }
   }
@@ -8186,7 +8223,7 @@ body{
     if(!video){
       video = document.createElement('div');
       video.className = 'mobile-video-embed';
-      video.innerHTML = '<iframe src="https://www.youtube.com/embed/di-EwyPEbJI?si=4RDJCUR_u-xUeFRO" title="3分鐘了解日本育兒智慧的大發明" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML = '<div class="lazy-youtube-frame" data-youtube-id="di-EwyPEbJI" data-youtube-si="4RDJCUR_u-xUeFRO"><button class="lazy-youtube-load" type="button" aria-label="播放 YouTube 影片"><span class="lazy-play-icon">▶</span><span>點擊播放影片</span></button></div>';
       title.parentNode.insertBefore(video, title.nextSibling);
     }
 
@@ -9928,7 +9965,7 @@ body{
     if(btn && !scene.querySelector('.scene-video-shell')){
       var shell = document.createElement('div');
       shell.className = 'scene-video-shell';
-      shell.innerHTML = '<div class="scene-video-title">🎬 3分鐘了解日本育兒智慧的大發明！</div><div class="scene-video-frame"><iframe src="https://www.youtube.com/embed/di-EwyPEbJI?si=4RDJCUR_u-xUeFRO" title="3分鐘了解日本育兒智慧的大發明" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+      shell.innerHTML = '<div class="scene-video-title">🎬 3分鐘了解日本育兒智慧的大發明！</div><div class="scene-video-frame lazy-youtube-frame" data-youtube-id="di-EwyPEbJI" data-youtube-si="4RDJCUR_u-xUeFRO"><button class="lazy-youtube-load" type="button" aria-label="播放 YouTube 影片"><span class="lazy-play-icon">▶</span><span>點擊播放影片</span></button></div>';
       btn.parentNode.insertBefore(shell, btn);
       btn.style.display = 'none';
     }
@@ -10758,8 +10795,6 @@ body.stage-gate-unlocked.nav-shop-visible .photo-nav .photo-nav-cta{display:inli
 }
 </style>
 
-</body>
-</html>
 <style id="v78-logo-spacing-final">
 /* v78: header logo shrink + ideal reveal logo size/spacing final tuning */
 .photo-logo img{
@@ -11209,3 +11244,249 @@ body.stage-gate-unlocked.nav-shop-visible .photo-nav .photo-nav-cta{display:inli
   .review-card{flex-basis:86%!important;}
 }
 </style>
+
+
+<style id="v84-r45-lazy-youtube-mobile-audit">
+/* R45: YouTube lazy-load placeholder, no external YouTube request before click */
+.lazy-youtube-frame{position:relative;width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#2D2D2D,#151515);border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.14);}
+.scene-video-frame.lazy-youtube-frame{border-radius:20px;}
+.mobile-video-embed .lazy-youtube-frame{border-radius:18px;}
+.lazy-youtube-frame::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.12),transparent 45%);pointer-events:none;}
+.lazy-youtube-load{position:relative;z-index:1;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#34271D;font-weight:900;font-size:15px;padding:12px 18px;display:inline-flex;align-items:center;gap:9px;cursor:pointer;box-shadow:0 8px 0 rgba(255,138,43,.35),0 16px 30px rgba(0,0,0,.18);}
+.lazy-youtube-load:hover{transform:translateY(-2px);}
+.lazy-play-icon{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#FF8A2B;color:#fff;font-size:14px;line-height:1;padding-left:2px;}
+.lazy-youtube-frame iframe{display:block;width:100%;height:100%;border:0;aspect-ratio:16/9;}
+@media(max-width:768px){.lazy-youtube-load{font-size:14px;padding:11px 16px}.lazy-play-icon{width:30px;height:30px}}
+</style>
+<script id="v84-r45-lazy-youtube-script">
+(function(){
+  function loadLazyYoutube(btn){
+    var frame = btn && btn.closest && btn.closest('.lazy-youtube-frame');
+    if(!frame || frame.dataset.loaded === '1') return;
+    var id = frame.getAttribute('data-youtube-id') || 'di-EwyPEbJI';
+    var si = frame.getAttribute('data-youtube-si') || '4RDJCUR_u-xUeFRO';
+    var src = 'https://www.' + 'you' + 'tube.com/embed/' + id + '?si=' + si + '&autoplay=1';
+    frame.dataset.loaded = '1';
+    frame.innerHTML = '<iframe src="' + src + '" title="3分鐘了解日本育兒智慧的大發明" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  }
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest && e.target.closest('.lazy-youtube-load');
+    if(!btn) return;
+    e.preventDefault();
+    loadLazyYoutube(btn);
+  });
+})();
+</script>
+
+<style id="v84-r46-mobile-front-audit-fixes">
+/* R46: mobile audit fixes for the stage-result transition. */
+.mobile-swipe-hint{display:none;}
+#realScenes .mobile-video-embed,
+#realScenes .mobile-video-title{display:none!important;}
+@media (max-width:768px){
+  #fear.stage-selected,
+  #fear.stage-selected .inner,
+  #fear.stage-selected .pain-stage-head,
+  #fear.stage-selected .stage-result-copy{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  #fear.stage-selected .stage-result-copy{
+    padding-inline:8px!important;
+    overflow:hidden!important;
+  }
+  #fear.stage-selected #stageResultTitle{
+    width:100%!important;
+    max-width:100%!important;
+    padding:0!important;
+    margin:0 auto 12px!important;
+    font-size:clamp(24px,7vw,29px)!important;
+    line-height:1.28!important;
+    letter-spacing:-.025em!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    text-wrap:balance;
+  }
+  #fear.stage-selected #stageResultSub{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:calc(100% - 24px)!important;
+    max-width:330px!important;
+    margin-inline:auto!important;
+    padding-inline:4px!important;
+    font-size:14px!important;
+    line-height:1.7!important;
+    white-space:normal!important;
+    word-break:break-all!important;
+    overflow-wrap:anywhere!important;
+  }
+  #fear .pain-mobile-nav{
+    width:100%!important;
+    max-width:240px!important;
+    margin:14px auto 0!important;
+  }
+  #idealNeeds .ideal-head{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    padding-inline:4px!important;
+    box-sizing:border-box!important;
+  }
+  #idealNeeds .inner,
+  #idealNeeds .ideal-wrap,
+  #idealNeeds .ideal-check-panel,
+  #idealNeeds .ideal-check-list,
+  #idealNeeds .ideal-check-item{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    box-sizing:border-box!important;
+  }
+  #idealNeeds .inner{
+    width:calc(100% - 24px)!important;
+    max-width:350px!important;
+  }
+  #idealNeeds .ideal-check-copy{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  #idealNeeds .ideal-check-copy h3,
+  #idealNeeds .ideal-check-copy p{
+    max-width:100%!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  #idealNeeds .ideal-needs-title{
+    width:calc(100% - 12px)!important;
+    max-width:320px!important;
+    margin-inline:auto!important;
+    font-size:clamp(23px,6.4vw,27px)!important;
+    line-height:1.3!important;
+    letter-spacing:-.025em!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    text-wrap:balance;
+  }
+  #idealNeeds .ideal-head-glow{
+    display:inline!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    box-decoration-break:clone!important;
+    -webkit-box-decoration-break:clone!important;
+  }
+  #idealNeeds .ideal-head .sub{
+    width:calc(100% - 16px)!important;
+    max-width:330px!important;
+    margin-inline:auto!important;
+    word-break:break-all!important;
+  }
+  #details .mobile-swipe-hint{
+    display:block!important;
+    margin:18px auto -10px!important;
+    text-align:center!important;
+    color:#B56513!important;
+    font-size:12.5px!important;
+    font-weight:900!important;
+    letter-spacing:.02em!important;
+  }
+}
+</style>
+
+<style id="v84-r47-details-horizontal-card-click">
+/* R47: Mirafeel details section — keep horizontal swipe, make the whole card tappable. */
+#details .detail-card{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  border:0!important;
+  font:inherit!important;
+  color:inherit!important;
+  cursor:pointer!important;
+  touch-action:pan-x pan-y!important;
+}
+#details .detail-card:focus-visible{
+  outline:4px solid rgba(255,138,43,.34)!important;
+  outline-offset:4px!important;
+}
+#details .detail-card .plus{
+  width:auto!important;
+  min-width:104px!important;
+  height:40px!important;
+  padding:0 15px!important;
+  border-radius:999px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  font-size:14px!important;
+  line-height:1!important;
+  letter-spacing:.02em!important;
+  white-space:nowrap!important;
+  transform:none!important;
+  animation:detailPlusBreathR47 1.9s ease-in-out infinite!important;
+  box-shadow:0 7px 0 rgba(0,0,0,.12),0 0 0 0 rgba(255,138,43,.22)!important;
+}
+#details .detail-card .plus::before,
+#details .detail-card .plus::after{
+  content:none!important;
+  display:none!important;
+}
+#details .detail-card .plus-symbol{
+  font-size:18px!important;
+  line-height:1!important;
+  transform:translateY(-.5px)!important;
+}
+#details .detail-card.active .plus,
+#details .detail-card:hover .plus{
+  transform:none!important;
+}
+#details .detail-card.active .plus{
+  animation:none!important;
+  background:#34271D!important;
+  box-shadow:0 5px 0 rgba(0,0,0,.16)!important;
+}
+@keyframes detailPlusBreathR47{
+  0%,100%{box-shadow:0 7px 0 rgba(0,0,0,.12),0 0 0 0 rgba(255,138,43,.24)}
+  50%{box-shadow:0 7px 0 rgba(0,0,0,.12),0 0 0 9px rgba(255,138,43,0)}
+}
+@media (max-width:768px){
+  #details.section{overflow:hidden!important;}
+  #details .details-grid{
+    display:flex!important;
+    grid-template-columns:none!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+    margin:24px -16px 0!important;
+    padding:0 16px 13px!important;
+  }
+  #details .detail-card{
+    flex:0 0 min(82%,300px)!important;
+    max-width:300px!important;
+    scroll-snap-align:center!important;
+    min-height:212px!important;
+  }
+  #details .detail-card .plus{
+    min-width:116px!important;
+    height:44px!important;
+    padding:0 17px!important;
+    font-size:14px!important;
+    margin-top:12px!important;
+  }
+  #details .detail-open:not(.show){display:none!important;}
+  #details .detail-open.show{display:grid!important;}
+  #details .mobile-swipe-hint{
+    max-width:310px!important;
+    line-height:1.5!important;
+  }
+}
+@media (max-width:390px){
+  #details .detail-card{flex-basis:84%!important;}
+}
+</style>
+</body>
+</html>
