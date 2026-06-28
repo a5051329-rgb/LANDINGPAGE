@@ -93,12 +93,9 @@ button,a.btn-style{-webkit-tap-highlight-color:transparent}
 /* ═══ S1 STAGE ═══ */
 #s1{background:var(--orl)}
 /* intro strip above title */
-.stage-intro{background:linear-gradient(135deg,var(--or),var(--ord));border-radius:var(--r);padding:16px 18px;margin-bottom:18px;position:relative;overflow:hidden}
-.stage-intro::after{content:'';position:absolute;right:-20px;top:-20px;width:80px;height:80px;background:rgba(255,255,255,.12);border-radius:50%}
-.stage-intro p{font-size:17px;color:rgba(255,255,255,.95);line-height:1.75;position:relative;z-index:1;font-weight:700}
-.stage-intro p strong{color:#fff;font-weight:900;font-size:16px}
+/* stage-intro moved to onboarding overlay */
 /* horizontal scroll cards */
-.stage-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:calc(100% + 40px);margin:0 -20px;padding:0 20px}
+.stage-scroll{display:flex;touch-action:pan-x;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%;scroll-padding-left:0}
 .stage-scroll::-webkit-scrollbar{display:none}
 .stg{flex:0 0 calc(100vw - 56px);max-width:400px;scroll-snap-align:start;background:#fff;border:2.5px solid var(--bd);border-radius:var(--r);padding:20px 18px 22px;cursor:pointer;text-align:center;transition:border-color .2s,box-shadow .2s,transform .15s;-webkit-tap-highlight-color:transparent;display:flex;flex-direction:column;align-items:center}
 .stg:active{transform:scale(.97)}
@@ -196,7 +193,7 @@ button,a.btn-style{-webkit-tap-highlight-color:transparent}
 .prod-sub{font-size:15px;color:#666;line-height:1.8;text-align:center;margin-bottom:12px}
 .prod-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
 .prod-pill{display:inline-block;background:var(--ye);color:#7a5200;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:800}
-.scene-scroll{display:flex;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:calc(100% + 40px);margin:0 -20px;padding:0 20px}
+.scene-scroll{display:flex;touch-action:pan-x;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%;padding:0 20px;scroll-padding-left:20px}
 .scene-scroll::-webkit-scrollbar{display:none}
 .sc{flex:0 0 72vw;max-width:280px;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;position:relative}
 .sc img{width:100%;aspect-ratio:3/2;object-fit:cover}
@@ -215,7 +212,7 @@ button,a.btn-style{-webkit-tap-highlight-color:transparent}
 /* ═══ S5 FEATURES ═══ */
 #s5{background:var(--orl);display:none;padding:56px 0}
 #s5.show{display:flex}
-.feat-scroll{display:flex;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:calc(100% + 40px);margin:14px -20px 0;padding:0 20px}
+.feat-scroll{display:flex;touch-action:pan-x;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%;padding:0 20px;scroll-padding-left:20px;margin-top:14px}
 .feat-scroll::-webkit-scrollbar{display:none}
 .fc{flex:0 0 66vw;max-width:258px;scroll-snap-align:start;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:box-shadow .2s}
 .fc:hover{box-shadow:0 6px 20px rgba(0,0,0,.12)}
@@ -227,7 +224,7 @@ button,a.btn-style{-webkit-tap-highlight-color:transparent}
 /* ═══ S6 2WAY ═══ */
 #s6{background:#fff;display:none}
 #s6.show{display:flex}
-.way-scroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:calc(100%+40px);margin:16px -20px 0;padding:0 20px}
+.way-scroll{display:flex;touch-action:pan-x;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%;padding:0 20px;scroll-padding-left:20px;margin-top:16px}
 .way-scroll::-webkit-scrollbar{display:none}
 .way-card{flex:0 0 72vw;max-width:260px;scroll-snap-align:start;background:var(--cr);border-radius:var(--r);box-shadow:0 2px 12px rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:center;padding:20px 16px 18px;position:relative;transition:box-shadow .2s}
 .way-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.12)}
@@ -295,7 +292,7 @@ table.cmp{width:100%;min-width:380px;border-collapse:separate;border-spacing:0;f
 .rv-header-img img{width:100%;height:auto;border-radius:10px;object-fit:contain}
 /* reviews grid scroll */
 .rv-outer{position:relative;width:100%;max-width:480px;margin:0 auto}
-.rv-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%}
+.rv-scroll{display:flex;touch-action:pan-x;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%}
 .rv-scroll::-webkit-scrollbar{display:none}
 .rv-group{flex:0 0 100%;width:100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;padding:8px 20px;box-sizing:border-box;flex-shrink:0}
 /* prev/next inside rv-outer */
@@ -305,8 +302,9 @@ table.cmp{width:100%;min-width:380px;border-collapse:separate;border-spacing:0;f
 .rv-nav.prev{left:4px}
 .rv-nav.next{right:4px}
 100%{transform:translateX(-50%)}}
-.rv{background:#fff;border-radius:16px;padding:18px 18px 14px;box-shadow:0 3px 14px rgba(0,0,0,.09);box-sizing:border-box;width:100%;overflow:hidden;word-break:break-word}
+.rv{background:#fff;border-radius:16px;padding:18px 18px 14px;box-shadow:0 3px 14px rgba(0,0,0,.09);box-sizing:border-box;width:100%;overflow:hidden;word-break:break-word;border:2px solid var(--bd)}
 .rv-tag{display:inline-block;border-radius:20px;padding:2px 10px;font-size:13px;font-weight:800;margin-bottom:6px}
+.rv.r0{border-color:#F9C4A8}.rv.r1{border-color:#A8D5F0}.rv.r2{border-color:#A8E0C0}.rv.r3{border-color:#CDB8EE}.rv.r4{border-color:#F9C4D0}.rv.r5{border-color:#B0D8B8}
 .rv.r0 .rv-tag{background:var(--pe);color:#8a4020}
 .rv.r1 .rv-tag{background:var(--sk);color:#0a4070}
 .rv.r2 .rv-tag{background:var(--mi);color:#0a5030}
@@ -375,12 +373,72 @@ table.cmp{width:100%;min-width:380px;border-collapse:separate;border-spacing:0;f
 footer{background:#111;color:rgba(255,255,255,.4);text-align:center;padding:18px;font-size:11px}
 
 /* ── CAROUSEL NAV BUTTONS ── */
-.carousel-wrap{position:relative;width:100%}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:34px;height:34px;background:rgba(255,255,255,.92);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent}
+.carousel-wrap{position:relative;width:100%;overflow:visible}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:34px;height:34px;background:rgba(255,255,255,.92);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .2s,box-shadow .2s,opacity .2s;-webkit-tap-highlight-color:transparent}
 .carousel-btn:hover{background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.22)}
+.carousel-btn.hidden{opacity:0;pointer-events:none}
 .carousel-btn svg{width:16px;height:16px;stroke:#333;stroke-width:2.5;fill:none}
 .carousel-btn.prev{left:6px}
 .carousel-btn.next{right:6px}
+
+/* ══ ONBOARDING SPOTLIGHT ══ */
+#ob-overlay{
+  position:fixed;inset:0;z-index:800;
+  pointer-events:none;
+  opacity:0;transition:opacity .4s ease;
+}
+#ob-overlay.show{opacity:1;pointer-events:all}
+#ob-overlay.hide{opacity:0;pointer-events:none}
+
+/* 全螢幕遮罩（canvas 畫法），點擊可關閉 */
+#ob-mask{position:absolute;inset:0;cursor:pointer}
+
+/* 關閉按鈕 */
+#ob-close{
+  position:absolute;top:16px;right:16px;
+  width:38px;height:38px;
+  background:rgba(255,255,255,.18);
+  border:1.5px solid rgba(255,255,255,.4);
+  border-radius:50%;color:#fff;font-size:18px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  z-index:820;transition:background .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+#ob-close:hover{background:rgba(255,255,255,.32)}
+
+/* 角色 + 泡泡 */
+#ob-char-wrap{
+  position:absolute;
+  left:50%;transform:translateX(-50%);
+  width:min(100vw - 32px, 448px);
+  display:flex;align-items:flex-end;gap:12px;
+  z-index:820;
+  opacity:0;
+  transition:opacity .45s ease .2s,transform .45s ease .2s;
+  /* bottom 由 JS 動態設定 */
+}
+#ob-overlay.show #ob-char-wrap{opacity:1}
+#ob-char-img{width:80px;height:80px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+#ob-bubble{
+  position:relative;
+  background:#fff;
+  border:2.5px solid var(--or);
+  border-radius:18px 18px 18px 4px;
+  padding:14px 16px;flex:1;
+  box-shadow:0 4px 20px rgba(242,120,42,.25);
+}
+#ob-bubble::before{content:'';position:absolute;bottom:12px;left:-12px;width:0;height:0;border-top:8px solid transparent;border-bottom:4px solid transparent;border-right:12px solid var(--or)}
+#ob-bubble::after{content:'';position:absolute;bottom:13px;left:-9px;width:0;height:0;border-top:7px solid transparent;border-bottom:3px solid transparent;border-right:10px solid #fff}
+#ob-title{font-size:15px;font-weight:900;color:#2d2d2d;line-height:1.45;margin-bottom:6px}
+#ob-sub{font-size:13px;color:#555;line-height:1.7}
+
+/* 發光按鈕（glow pulse） */
+@keyframes ob-glow{
+  0%,100%{box-shadow:0 0 0 0 rgba(242,120,42,.6),0 2px 10px rgba(0,0,0,.18)}
+  50%{box-shadow:0 0 0 6px rgba(242,120,42,.25),0 4px 16px rgba(242,120,42,.4)}
+}
+.ob-glow{animation:ob-glow 1.4s ease-in-out infinite!important}
+
 </style>
 </head>
 <body>
@@ -389,6 +447,20 @@ footer{background:#111;color:rgba(255,255,255,.4);text-align:center;padding:18px
 <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂端">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
+
+
+<!-- ══ ONBOARDING SPOTLIGHT ══ -->
+<div id="ob-overlay" aria-hidden="true">
+  <canvas id="ob-mask"></canvas>
+  <button id="ob-close" onclick="closeOnboarding()" aria-label="關閉引導">✕</button>
+  <div id="ob-char-wrap">
+    <img id="ob-char-img" src="images/final_baby.png" alt="Mirafeel 角色">
+    <div id="ob-bubble">
+      <div id="ob-title">寶寶每個成長階段，<br>換尿布的困擾都不一樣。</div>
+      <div id="ob-sub">先選擇你家寶寶現在在哪個階段吧！<br>接著，我們會幫你找出你與寶寶最需要的解方。</div>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -444,9 +516,7 @@ footer{background:#111;color:rgba(255,255,255,.4);text-align:center;padding:18px
 <section class="sec" id="s1">
   <div class="sec-content">
     <!-- intro strip (no bubble) -->
-    <div class="stage-intro">
-      <p><strong>寶寶每個成長階段，換尿布的困擾都不一樣。</strong></p><p style="margin-top:8px;font-size:13px;font-weight:400">先選擇你家寶寶現在在哪個階段吧！接著，我們會幫你找出你最需要的解方。</p>
-    </div>
+
     <h2 style="text-align:center;margin-bottom:16px">你家寶寶現在<br>在哪個活動階段？</h2>
     <!-- horizontal scroll, 1 card at a time -->
     <div class="carousel-wrap">
@@ -1060,14 +1130,34 @@ document.querySelectorAll('.fi').forEach(el=>io.observe(el));
 function rvNav(dir){
   const el=document.getElementById('rv-track-outer');
   if(!el)return;
-  const w=el.querySelector('.rv-group')?.offsetWidth||el.offsetWidth;
-  el.scrollBy({left:dir*w,behavior:'smooth'});
+  const w=el.querySelector('.rv-group')?.offsetWidth||el.clientWidth;
+  const maxScroll=el.scrollWidth-el.clientWidth;
+  const target=Math.min(Math.max(el.scrollLeft+dir*w,0),maxScroll);
+  el.scrollTo({left:target,behavior:'smooth'});
 }
 function scrollCarousel(id,dir){
   const el=document.getElementById(id);
   if(!el)return;
-  const cardW=el.querySelector('.rv-group')?.offsetWidth||el.querySelector('.stg,.sc,.fc,.way-card,.rv')?.offsetWidth||260;
-  el.scrollBy({left:dir*(cardW+14),behavior:'smooth'});
+  // 取得單卡寬度（含 gap）
+  const card=el.querySelector('.stg,.sc,.fc,.way-card');
+  const cardW=card?(card.offsetWidth+parseInt(getComputedStyle(el).gap)||12):260;
+  const maxScroll=el.scrollWidth-el.clientWidth;
+  const target=Math.min(Math.max(el.scrollLeft+dir*cardW,0),maxScroll);
+  el.scrollTo({left:target,behavior:'smooth'});
+  // 更新按鈕狀態
+  updateCarouselBtns(id);
+}
+function updateCarouselBtns(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const wrap=el.closest('.carousel-wrap');
+  if(!wrap)return;
+  setTimeout(()=>{
+    const atStart=el.scrollLeft<=2;
+    const atEnd=el.scrollLeft>=el.scrollWidth-el.clientWidth-2;
+    wrap.querySelector('.prev')?.classList.toggle('hidden',atStart);
+    wrap.querySelector('.next')?.classList.toggle('hidden',atEnd);
+  },350);
 }
 function track(tag){if(!tag)return;console.log('[TAG]',tag)}
 document.querySelectorAll('[data-tag]').forEach(el=>el.addEventListener('click',()=>track(el.dataset.tag)));
@@ -1076,6 +1166,130 @@ setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);if(!d30&&s>=30){d30=tr
 const st={s2:'view_worries',s3:'view_needs',s3b:'view_urgency',s4:'view_product',s5:'view_features',s6:'view_2way',s7:'view_compare',s8:'view_quality',s9:'view_reviews',s10:'view_qa',s11:'view_size',s12:'view_final_cta'};
 const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){if(st[x.target.id])track(st[x.target.id]);if(x.target.id==='s4')setTimeout(()=>window._observeNav&&window._observeNav(),50);so.unobserve(x.target)}})},{threshold:.3});
 Object.keys(st).forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el)});
+
+/* ══ ONBOARDING SPOTLIGHT ══ */
+(function(){
+  if(sessionStorage.getItem('ob_done'))return;
+
+  let triggered=false;
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!triggered){
+      triggered=true;
+      obs.disconnect();
+      // 多等一點讓畫面穩定
+      setTimeout(showOnboarding,500);
+    }
+  },{threshold:.3});
+  obs.observe(document.getElementById('s1'));
+
+  function showOnboarding(){
+    const overlay=document.getElementById('ob-overlay');
+    const s1=document.getElementById('s1');
+    const scrollWrap=document.getElementById('stage-scroll');
+    if(!overlay||!s1||!scrollWrap)return;
+
+    // 找 carousel-wrap（按鈕的父層）
+    const carouselWrap=scrollWrap.closest('.carousel-wrap')||scrollWrap.parentElement;
+
+    // spotlight 對準 carousel-wrap（含左右按鈕）
+    const rect=(carouselWrap||scrollWrap).getBoundingClientRect();
+    const pad=14;
+    const sx=Math.max(rect.left-pad,0);
+    const sy=rect.top-pad;
+    const sw=Math.min(rect.width+pad*2,window.innerWidth);
+    const sh=rect.height+pad*2;
+
+    // 角色+泡泡：放在 s1 主標題附近（spotlight 上方，往下偏移讓它蓋住標題）
+    const s1rect=s1.getBoundingClientRect();
+    const charWrap=document.getElementById('ob-char-wrap');
+    // 計算位置：spotlight 頂部往上 ~ 蓋住 h2 位置
+    const charBottom=window.innerHeight-sy+20; // 從底部算，讓它在 spotlight 正上方
+    charWrap.style.bottom=charBottom+'px';
+    charWrap.style.top='auto';
+
+    // canvas 遮罩
+    const canvas=document.getElementById('ob-mask');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    const ctx=canvas.getContext('2d');
+
+    function drawMask(){
+      const r2=(carouselWrap||scrollWrap).getBoundingClientRect();
+      const cx2=Math.max(r2.left-pad,0);
+      const cy2=r2.top-pad;
+      const cw2=Math.min(r2.width+pad*2,window.innerWidth);
+      const ch2=r2.height+pad*2;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle='rgba(0,0,0,0.72)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.save();
+      ctx.globalCompositeOperation='destination-out';
+      roundRect(ctx,cx2,cy2,cw2,ch2,14);
+      ctx.fillStyle='rgba(0,0,0,1)';
+      ctx.fill();
+      ctx.restore();
+    }
+    drawMask();
+
+    // ── 點任何地方都關閉（x 按鈕 + overlay 本身）
+    overlay.onclick=function(e){
+      // 只排除 ob-close 本身（它自己有 onclick）
+      if(e.target.id==='ob-close')return;
+      closeOnboarding();
+    };
+
+    // 顯示
+    overlay.classList.remove('hide');
+    requestAnimationFrame(()=>{
+      overlay.classList.add('show');
+    });
+    document.body.style.overflow='hidden';
+
+    // 按鈕發光
+    if(carouselWrap){
+      carouselWrap.querySelectorAll('.carousel-btn,.stg-select-btn').forEach(b=>b.classList.add('ob-glow'));
+    }
+
+    // resize 重繪
+    window._obResize=function(){
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight;
+      drawMask();
+    };
+    window.addEventListener('resize',window._obResize,{passive:true});
+  }
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);
+    ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);
+    ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);
+    ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);
+    ctx.closePath();
+  }
+
+  window.closeOnboarding=function(){
+    const overlay=document.getElementById('ob-overlay');
+    if(!overlay||!overlay.classList.contains('show'))return;
+    overlay.classList.add('hide');
+    setTimeout(()=>{
+      overlay.classList.remove('show','hide');
+    },420);
+    document.body.style.overflow='';
+    document.querySelectorAll('.ob-glow').forEach(b=>b.classList.remove('ob-glow'));
+    if(window._obResize)window.removeEventListener('resize',window._obResize);
+    sessionStorage.setItem('ob_done','1');
+  };
+
+  // 選了階段也自動關閉
+  const origSelect=window.selectStage;
+  window.selectStage=function(key,el){
+    if(!sessionStorage.getItem('ob_done'))closeOnboarding();
+    origSelect(key,el);
+  };
+})();
+
 </script>
 </body>
 </html>
