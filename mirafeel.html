@@ -393,18 +393,22 @@ footer{background:#111;color:rgba(255,255,255,.4);text-align:center;padding:18px
 /* 全螢幕遮罩（canvas 畫法），點擊可關閉 */
 #ob-mask{position:absolute;inset:0;cursor:pointer}
 
-/* 關閉按鈕 */
+/* 關閉按鈕 — 在 spotlight 下方，低調灰色 */
 #ob-close{
-  position:absolute;top:16px;right:16px;
-  width:38px;height:38px;
-  background:rgba(255,255,255,.18);
-  border:1.5px solid rgba(255,255,255,.4);
-  border-radius:50%;color:#fff;font-size:18px;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  z-index:820;transition:background .2s;
+  position:absolute;
+  left:50%;transform:translateX(-50%);
+  background:none;border:none;
+  color:rgba(255,255,255,.45);
+  font-size:13px;font-weight:500;
+  letter-spacing:.04em;
+  cursor:pointer;
+  z-index:820;
+  padding:10px 20px;
+  white-space:nowrap;
   -webkit-tap-highlight-color:transparent;
+  transition:color .2s;
 }
-#ob-close:hover{background:rgba(255,255,255,.32)}
+#ob-close:hover{color:rgba(255,255,255,.72)}
 
 /* 角色 + 泡泡 */
 #ob-char-wrap{
@@ -452,7 +456,7 @@ footer{background:#111;color:rgba(255,255,255,.4);text-align:center;padding:18px
 <!-- ══ ONBOARDING SPOTLIGHT ══ -->
 <div id="ob-overlay" aria-hidden="true">
   <canvas id="ob-mask"></canvas>
-  <button id="ob-close" onclick="closeOnboarding()" aria-label="關閉引導">✕</button>
+  <button id="ob-close" onclick="closeOnboarding()" aria-label="關閉引導">✕ 關閉</button>
   <div id="ob-char-wrap">
     <img id="ob-char-img" src="images/final_baby.png" alt="Mirafeel 角色">
     <div id="ob-bubble">
@@ -1206,6 +1210,11 @@ Object.keys(st).forEach(id=>{const el=document.getElementById(id);if(el)so.obser
     const charBottom=window.innerHeight-sy+20; // 從底部算，讓它在 spotlight 正上方
     charWrap.style.bottom=charBottom+'px';
     charWrap.style.top='auto';
+
+    // 關閉按鈕放在 spotlight 下方
+    const obClose=document.getElementById('ob-close');
+    obClose.style.top=(sy+sh+18)+'px';
+    obClose.style.bottom='auto';
 
     // canvas 遮罩
     const canvas=document.getElementById('ob-mask');
